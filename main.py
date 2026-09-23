@@ -116,10 +116,17 @@ def run():
         defense = DefenseManager(page)
         planner = PlannerManager(page, telemetry)
 
-        # Initialize Discord remote manager
+        latest_snapshot_file = [None]
+
+        def take_cycle_snapshot():
+            path, _ = save_error_snapshot(page, prefix="live_state")
+            if path:
+                latest_snapshot_file[0] = path
+
+        # Initialize Discord remote manager with thread-safe state readers
         discord_mgr = DiscordManager(
-            telemetry_getter=lambda: telemetry.get_empire_overview(),
-            snapshot_callback=lambda: save_error_snapshot(page, prefix="manual_snapshot")[0]
+            telemetry_getter=lambda: telemetry.get_latest_snapshot(),
+            snapshot_callback=lambda: latest_snapshot_file[0]
         )
         discord_mgr.start()
 
@@ -227,6 +234,9 @@ def run():
                         sleep_time = heartbeat_cap
                         print(
                             f"[*] All queues idle across empire. Sleeping heartbeat ({sleep_time}s)...")
+
+                    # Update latest snapshot for Discord !snapshot command
+                    take_cycle_snapshot()
 
                     # Dispatch periodic heartbeat log to Discord #bot-logs
                     if cycle_count % 5 == 1 or imminent_attack:

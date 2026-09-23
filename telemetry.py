@@ -1,5 +1,6 @@
 import re
 import time
+import threading
 from playwright.sync_api import Page
 from config import BASE_URL, safe_goto, get_planet_url, human_delay
 
@@ -10,6 +11,27 @@ class TelemetryManager:
         self._empire_cache: dict | None = None
         self._empire_cache_time: float = 0
         self._cache_ttl: float = 15.0  # seconds
+        self._state_lock = threading.Lock()
+        self._latest_empire_data: dict = {
+            "planets": [],
+            "building_queues": {},
+            "ship_queues": {},
+            "resources": {},
+            "production": {},
+            "building_levels": {},
+            "storage_limits": {},
+            "ships": {},
+            "defense": {},
+            "last_updated": 0
+        }
+
+    def get_latest_snapshot(self) -> dict:
+        """
+        Thread-safe reader for external consumers (e.g. Discord bot thread).
+        Never touches Playwright page directly, avoiding greenlet/cross-thread errors.
+        """
+        with self._state_lock:
+            return dict(self._latest_empire_data)
 
     def _parse_duration(self, text: str) -> int:
         """Converts (hh:mm:ss) or hh:mm:ss into total seconds."""
@@ -185,6 +207,11 @@ class TelemetryManager:
 
         self._empire_cache = data
         self._empire_cache_time = now
+
+        with self._state_lock:
+            self._latest_empire_data = dict(data)
+            self._latest_empire_data["last_updated"] = now
+
         return data
 
     def get_resources(self, coords: str | None = None) -> dict:

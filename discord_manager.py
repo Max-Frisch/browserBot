@@ -83,17 +83,22 @@ class DiscordManager:
                 await ctx.send("⚠️ Telemetry service is currently initializing...")
                 return
 
-            await ctx.send("🛰️ Fetching live empire telemetry...")
             try:
                 data = self.telemetry_getter()
                 planets = data.get("planets", [])
                 resources = data.get("resources", {})
                 b_queues = data.get("building_queues", {})
                 s_queues = data.get("ship_queues", {})
+                last_updated = data.get("last_updated", 0)
 
+                if not planets:
+                    await ctx.send("⏳ Telemetry snapshot not ready yet (bot is performing initial cycle). Please retry in a few seconds...")
+                    return
+
+                age_str = f"{int(time.time() - last_updated)}s ago" if last_updated else "Just now"
                 embed = discord.Embed(
                     title="🌌 Empire Overview Status",
-                    description=f"Active Planets: **{len(planets)}** | Mode: **{'⏸️ PAUSED' if BOT_PAUSED else '▶️ RUNNING'}**",
+                    description=f"Active Planets: **{len(planets)}** | Mode: **{'⏸️ PAUSED' if BOT_PAUSED else '▶️ RUNNING'}** | *Updated: {age_str}*",
                     color=0x9B59B6,
                 )
 
