@@ -1,0 +1,209 @@
+{
+  "last_updated": 1790151329,
+  "galaxies": {
+    "3": {
+      "7": {
+        "total_slots": 8,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Redock",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "malschauen",
+            "type": "player",
+            "alliance": "[-DU-]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Bluey",
+            "type": "player",
+            "alliance": "[-ThF-]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "ultrapfanners",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Sarox",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Caelan Tavus",
+            "type": "player",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Vulkok",
+            "type": "player",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Maus",
+            "type": "player",
+            "alliance": "[Chaos]"
+          }
+        ]
+      },
+      "8": {
+        "total_slots": 12,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "olivia",
+            "type": "player",
+            "alliance": "[-DU-]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Roric Joric",
+            "type": "player",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Bluey",
+            "type": "player",
+            "alliance": "[-ThF-]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Lyra Croft",
+            "type": "player",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "deja",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "olivia",
+            "type": "player",
+            "alliance": "[-DU-]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "deja",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "deja",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "deja",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Roric Sharma",
+            "type": "player",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 11,
+            "status": "occupied",
+            "owner": "deja",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "occupied",
+            "owner": "deja",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      }
+    },
+    "1": {
+      "45": {
+        "total_slots": 6,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Kobra018",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      }
+    }
+  }
+}
