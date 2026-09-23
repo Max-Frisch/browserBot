@@ -9,9 +9,27 @@
         "amount": 1
       }
     ],
-    "2:109:1": [],
-    "2:109:2": [],
-    "2:109:3": [],
+    "2:109:1": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 18
+      }
+    ],
+    "2:109:2": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 18
+      }
+    ],
+    "2:109:3": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 18
+      }
+    ],
     "2:43:1": [
       {
         "type": "building",
