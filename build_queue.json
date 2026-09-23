@@ -3,18 +3,6 @@
   "research_goals": [
     {
       "type": "research",
-      "name": "Combustion Drive",
-      "level": 6,
-      "note": "Costs only 6.9k Iron, 0 H2, takes 2.5 min"
-    },
-    {
-      "type": "research",
-      "name": "Spy Technology",
-      "level": 8,
-      "note": "Costs 7k Iron, 1.7k Luti, 0 H2"
-    },
-    {
-      "type": "research",
       "name": "Space Curvature Drive",
       "level": 5,
       "note": "Unlocked as soon as H2 reaches 116.666 (Unlocks Large Trader!)"
@@ -24,29 +12,12 @@
     "3:7:1": [
       {
         "type": "building",
-        "name": "Lutinum Refinery",
-        "level": 20,
-        "note": "Costs 32.5k Fe, 5k Lu, 0 H2 - Start immediately!"
-      },
-      {
-        "type": "building",
         "name": "Iron Mine",
         "level": 22,
         "note": "Costs 86k Fe, 6.9k Lu, 0 H2"
-      },
-      {
-        "type": "building",
-        "name": "Lutinum Refinery",
-        "level": 21,
-        "note": "Costs 38.3k Fe, 5.9k Lu, 0 H2"
       }
     ],
     "2:109:1": [
-      {
-        "type": "building",
-        "name": "Iron Mine",
-        "level": 20
-      },
       {
         "type": "building",
         "name": "Lutinum Refinery",
@@ -56,21 +27,11 @@
     "2:109:2": [
       {
         "type": "building",
-        "name": "Iron Mine",
-        "level": 20
-      },
-      {
-        "type": "building",
         "name": "Lutinum Refinery",
         "level": 16
       }
     ],
     "2:109:3": [
-      {
-        "type": "building",
-        "name": "Iron Mine",
-        "level": 20
-      },
       {
         "type": "building",
         "name": "Lutinum Refinery",
@@ -80,11 +41,6 @@
     "2:43:1": [
       {
         "type": "building",
-        "name": "Ship Factory",
-        "level": 4
-      },
-      {
-        "type": "building",
         "name": "Iron Mine",
         "level": 18
       },
@@ -92,16 +48,21 @@
         "type": "building",
         "name": "Lutinum Refinery",
         "level": 14
+      },
+      {
+        "type": "building",
+        "name": "Planetary Shield",
+        "level": 1
+      },
+      {
+        "type": "building",
+        "name": "Hydrogen Tanks",
+        "level": 2
       }
     ],
     "2:43:2": [
       {
         "type": "building",
-        "name": "Ship Factory",
-        "level": 4
-      },
-      {
-        "type": "building",
         "name": "Iron Mine",
         "level": 18
       },
@@ -109,16 +70,21 @@
         "type": "building",
         "name": "Lutinum Refinery",
         "level": 14
+      },
+      {
+        "type": "building",
+        "name": "Planetary Shield",
+        "level": 1
+      },
+      {
+        "type": "building",
+        "name": "Hydrogen Tanks",
+        "level": 2
       }
     ],
     "2:43:3": [
       {
         "type": "building",
-        "name": "Ship Factory",
-        "level": 4
-      },
-      {
-        "type": "building",
         "name": "Iron Mine",
         "level": 18
       },
@@ -126,87 +92,52 @@
         "type": "building",
         "name": "Lutinum Refinery",
         "level": 14
+      },
+      {
+        "type": "building",
+        "name": "Planetary Shield",
+        "level": 1
+      },
+      {
+        "type": "building",
+        "name": "Hydrogen Tanks",
+        "level": 2
       }
     ],
     "4:48:1": [
       {
         "type": "building",
-        "name": "Command Center",
-        "level": 4
-      },
-      {
-        "type": "building",
         "name": "Iron Mine",
-        "level": 11
+        "level": 13
       },
       {
         "type": "building",
         "name": "Lutinum Refinery",
-        "level": 9
-      },
-      {
-        "type": "building",
-        "name": "Iron Storage",
-        "level": 3
-      },
-      {
-        "type": "building",
-        "name": "Lutinum Storage",
-        "level": 3
+        "level": 10
       }
     ],
     "4:48:2": [
       {
         "type": "building",
-        "name": "Command Center",
-        "level": 4
-      },
-      {
-        "type": "building",
         "name": "Iron Mine",
-        "level": 11
+        "level": 13
       },
       {
         "type": "building",
         "name": "Lutinum Refinery",
-        "level": 9
-      },
-      {
-        "type": "building",
-        "name": "Iron Storage",
-        "level": 3
-      },
-      {
-        "type": "building",
-        "name": "Lutinum Storage",
-        "level": 3
+        "level": 10
       }
     ],
     "4:48:3": [
       {
         "type": "building",
-        "name": "Command Center",
-        "level": 4
-      },
-      {
-        "type": "building",
         "name": "Iron Mine",
-        "level": 11
+        "level": 13
       },
       {
         "type": "building",
         "name": "Lutinum Refinery",
-        "level": 9
-      },
-      {
-        "type": "building",
-        "name": "Iron Storage",
-        "level": 3
-      },
-      {
-        "type": "building",
-        "name": "Lutinum Storage",
-        "level": 3
+        "level": 10
       }
     ]
   }
