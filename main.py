@@ -1,4 +1,6 @@
 import os
+import sys
+import json
 import time
 import random
 from playwright.sync_api import sync_playwright, Error as PlaywrightError
@@ -25,6 +27,28 @@ from telemetry import TelemetryManager
 from shipyard import ShipyardManager
 from defense import DefenseManager
 from planner import PlannerManager
+from discord_manager import DiscordManager
+import discord_manager
+
+
+class Logger(object):
+    def __init__(self, filename="bot.log"):
+        self.terminal = sys.stdout
+        self.logfile = open(filename, "a", encoding="utf-8")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.terminal.flush()
+        self.logfile.write(message)
+        self.logfile.flush()
+
+    def flush(self):
+        self.terminal.flush()
+        self.logfile.flush()
+
+
+sys.stdout = Logger("bot.log")
+sys.stderr = sys.stdout
 
 
 def login_if_needed(page, context):
@@ -88,6 +112,13 @@ def run():
         defense = DefenseManager(page)
         planner = PlannerManager(page, telemetry)
 
+        # Initialize Discord remote manager
+        discord_mgr = DiscordManager(
+            telemetry_getter=lambda: telemetry.get_empire_overview(),
+            snapshot_callback=lambda: save_error_snapshot(page, prefix="manual_snapshot")[0]
+        )
+        discord_mgr.start()
+
         try:
             login_if_needed(page, context)
         except PlaywrightError as auth_err:
@@ -95,18 +126,40 @@ def run():
             save_error_snapshot(page, prefix="login_failure")
 
         print("[+] Modular Bot Loop Active.\n")
+        cycle_count = 0
         try:
             while True:
-                print(f"\n=== [Cycle: {time.strftime('%H:%M:%S')}] ===")
+                # Check if paused via Discord
+                if discord_manager.BOT_PAUSED:
+                    print("[⏸️ BOT PAUSED] Automation temporarily suspended via Discord. Sleeping 15s...")
+                    time.sleep(15)
+                    continue
+
+                cycle_count += 1
+                print(f"\n=== [Cycle: {time.strftime('%H:%M:%S')} | #{cycle_count}] ===")
 
                 try:
                     # Retrieve primary planet context from build_queue.json
                     queue_data = planner.load_queue_data()
                     main_coords = queue_data.get("main_planet", "3:7:1")
 
-                    # 1. Check Global Fleet Movements
+                    # 1. Check Global Fleet Movements & Dispatch Discord Alerts
                     incoming = defense.check_incoming_fleets(
                         coords=main_coords)
+
+                    for ev in incoming:
+                        m_type = ev.get("mission", "").lower()
+                        if any(h in m_type for h in ["attack", "angriff", "plunder", "raid", "spionage", "spy"]):
+                            discord_mgr.send_fleet_alert(
+                                title=f"Incoming Fleet: {ev['mission']}",
+                                description=f"Hostile movement detected heading towards **[{main_coords}]**!",
+                                fields={
+                                    "Target Planet": f"[{main_coords}]",
+                                    "ETA": f"{ev['remaining_seconds']}s ({round(ev['remaining_seconds'] / 60, 1)}m)",
+                                    "Arrival Time": ev.get("arrival_time", "N/A"),
+                                },
+                                urgent=True
+                            )
 
                     # 2. Check Telemetry & Exposed Resources on Main Planet
                     resources = telemetry.get_resources()
@@ -175,6 +228,17 @@ def run():
                         print(
                             f"[*] All queues idle across empire. Sleeping heartbeat ({sleep_time}s)...")
 
+                    # Dispatch periodic heartbeat log to Discord #bot-logs
+                    if cycle_count % 5 == 1 or imminent_attack:
+                        discord_mgr.send_bot_log(
+                            title=f"Cycle #{cycle_count} Heartbeat",
+                            description=f"Primary planet: `[{main_coords}]` | Sleeping `{sleep_time}s`",
+                            fields={
+                                "Active Queues": str(len(active_seconds)),
+                                "Incoming Fleets": str(len(incoming)),
+                            }
+                        )
+
                 except PlaywrightError as err:
                     print(f"[⚠️ Network/Navigation Warning]: {err}")
                     # Capture screenshot and HTML DOM dump for headless diagnostics
@@ -182,6 +246,10 @@ def run():
                     print(
                         "[*] Browser session settling for 10 seconds before next cycle...")
                     sleep_time = 10
+                except Exception as err:
+                    print(f"[⚠️ Unexpected Exception in Cycle]: {err}")
+                    save_error_snapshot(page, prefix="unexpected_cycle_error")
+                    sleep_time = 15
 
                 time.sleep(sleep_time)
 
