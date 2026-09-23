@@ -16,16 +16,62 @@ class ShipyardManager:
         self.page = page
         self.telemetry = telemetry
 
-    def cancel_all_ship_queues(self, coords: str = "3:7:1"):
-        """Cancels all currently queued ships to return resources to planet."""
+    def cancel_all_ship_queues(self, coords: str = "3:7:1") -> bool:
+        """
+        Cancels all currently queued ships to return resources to planet.
+        Handles both browser dialog ('OK' popup on 'DELETE ALL') and the fallback checkbox approach.
+        """
         safe_goto(self.page, get_planet_url(coords, "ship"))
+        
+        # Primary: 'DELETE ALL' with dialog listener
         delete_all_btn = self.page.locator(
-            "#delete_combat_units_from_queue_deleteAll")
+            "#delete_combat_units_from_queue_deleteAll, button:has-text('DELETE ALL'), a:has-text('DELETE ALL')"
+        ).first
+        
         if delete_all_btn.count() > 0 and delete_all_btn.is_visible():
-            print(
-                f"[*] [{coords}] Canceling ship queue to recover liquid resources...")
-            delete_all_btn.click()
-            self.page.wait_for_load_state("networkidle")
+            print(f"[*] [{coords}] Canceling ship queue via 'DELETE ALL' (accepting dialog popup)...")
+            # Register one-time dialog handler to auto-accept the confirmation popup ("OK")
+            self.page.once("dialog", lambda dialog: dialog.accept())
+            try:
+                delete_all_btn.click()
+                self.page.wait_for_load_state("networkidle")
+                return True
+            except Exception as e:
+                print(f"[⚠️ Error during DELETE ALL click]: {e}")
+
+        # Fallback: Select all position checkboxes and click 'DELETE SELECTED' (no popup)
+        return self.cancel_selected_ship_queues(coords=coords)
+
+    def cancel_selected_ship_queues(self, coords: str = "3:7:1") -> bool:
+        """
+        Cancels queued ship orders by selecting their checkboxes and clicking 'DELETE SELECTED' (no confirmation modal needed).
+        """
+        safe_goto(self.page, get_planet_url(coords, "ship"))
+        checkboxes = self.page.locator("input[type='checkbox'][name*='delete']").all()
+        if not checkboxes:
+            # Check for any row checkboxes under order list
+            checkboxes = self.page.locator(".current-order-list input[type='checkbox'], table input[type='checkbox']").all()
+
+        if checkboxes:
+            print(f"[*] [{coords}] Selecting {len(checkboxes)} queue item(s) to cancel...")
+            for cb in checkboxes:
+                try:
+                    if not cb.is_checked():
+                        cb.check()
+                except Exception:
+                    pass
+
+            del_selected_btn = self.page.locator(
+                "#delete_combat_units_from_queue_deleteSelected, button:has-text('DELETE SELECTED'), a:has-text('DELETE SELECTED')"
+            ).first
+
+            if del_selected_btn.count() > 0 and del_selected_btn.is_visible():
+                del_selected_btn.click()
+                self.page.wait_for_load_state("networkidle")
+                print(f"[+] [{coords}] Successfully canceled selected ship queue items!")
+                return True
+
+        return False
 
     def parse_ship_catalog(self, coords: str = "3:7:1") -> dict[str, dict]:
         """
