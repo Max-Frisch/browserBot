@@ -3,11 +3,158 @@
   "research_goals": [],
   "planets": {
     "3:7:1": [],
-    "2:109:1": [],
-    "2:109:2": [],
-    "2:109:3": [],
-    "2:43:1": [],
-    "2:43:2": [],
-    "2:43:3": []
+    "2:109:1": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 20
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 16
+      }
+    ],
+    "2:109:2": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 20
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 16
+      }
+    ],
+    "2:109:3": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 20
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 16
+      }
+    ],
+    "2:43:1": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 18
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 14
+      }
+    ],
+    "2:43:2": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 18
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 14
+      }
+    ],
+    "2:43:3": [
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 18
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 14
+      }
+    ],
+    "4:48:1": [
+      {
+        "type": "building",
+        "name": "Command Center",
+        "level": 4
+      },
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 11
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 9
+      },
+      {
+        "type": "building",
+        "name": "Iron Storage",
+        "level": 3
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Storage",
+        "level": 3
+      }
+    ],
+    "4:48:2": [
+      {
+        "type": "building",
+        "name": "Command Center",
+        "level": 4
+      },
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 11
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 9
+      },
+      {
+        "type": "building",
+        "name": "Iron Storage",
+        "level": 3
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Storage",
+        "level": 3
+      }
+    ],
+    "4:48:3": [
+      {
+        "type": "building",
+        "name": "Command Center",
+        "level": 4
+      },
+      {
+        "type": "building",
+        "name": "Iron Mine",
+        "level": 11
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Refinery",
+        "level": 9
+      },
+      {
+        "type": "building",
+        "name": "Iron Storage",
+        "level": 3
+      },
+      {
+        "type": "building",
+        "name": "Lutinum Storage",
+        "level": 3
+      }
+    ]
   }
 }
