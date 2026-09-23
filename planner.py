@@ -25,16 +25,35 @@ class PlannerManager:
         self.telemetry = telemetry
 
     def load_queue_data(self) -> dict:
-        """Loads complete build queue structure from build_queue.json."""
+        """Loads complete build queue structure from build_queue.json with retry handling."""
         if os.path.exists(BUILD_QUEUE_FILE):
-            with open(BUILD_QUEUE_FILE, "r") as f:
-                return json.load(f)
+            for attempt in range(3):
+                try:
+                    with open(BUILD_QUEUE_FILE, "r", encoding="utf-8") as f:
+                        return json.load(f)
+                except (json.JSONDecodeError, OSError):
+                    time.sleep(0.05)
+                except Exception as e:
+                    print(f"[⚠️ Planner load error attempt #{attempt+1}]: {e}")
+                    time.sleep(0.05)
         return {"main_planet": "3:7:1", "research_goals": [], "planets": {}}
 
     def _save_queue_data(self, data: dict):
-        """Writes updated JSON structure back to build_queue.json."""
-        with open(BUILD_QUEUE_FILE, "w") as f:
-            json.dump(data, f, indent=2)
+        """Atomically writes updated JSON structure back to build_queue.json."""
+        temp_file = f"{BUILD_QUEUE_FILE}.tmp"
+        try:
+            with open(temp_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+                f.flush()
+                os.fsync(f.fileno())
+            os.replace(temp_file, BUILD_QUEUE_FILE)
+        except Exception as e:
+            print(f"[⚠️ Planner Atomic Save Error]: {e}")
+            if os.path.exists(temp_file):
+                try:
+                    os.remove(temp_file)
+                except Exception:
+                    pass
 
     def remove_completed_goal(self, goal_to_remove: dict, coords: str = None, is_research: bool = False):
         """Removes a finished goal from the appropriate list in build_queue.json."""
