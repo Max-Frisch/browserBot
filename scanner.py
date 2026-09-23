@@ -163,10 +163,18 @@ def parse_galaxy_dom(html: str) -> List[Dict[str, Any]]:
             status = "occupied"
             owner = player_name if player_name else "Unknown"
             lower_owner = owner.lower()
+            lower_block = block.lower()
+
+            # Check for NPC badge or robot icon in the slot DOM
+            is_npc = False
             if "_bot" in lower_owner or "freenation" in lower_owner or "npc" in lower_owner or lower_owner.endswith("bot"):
-                p_type = "npc"
-            else:
-                p_type = "player"
+                is_npc = True
+            elif ">npc<" in lower_block or "badge-npc" in lower_block or "label-npc" in lower_block:
+                is_npc = True
+            elif "robot" in lower_block or "bot" in user_html.lower() or "fa-robot" in lower_block:
+                is_npc = True
+
+            p_type = "npc" if is_npc else "player"
 
         slots.append({
             "slot": slot_num,

@@ -91,9 +91,37 @@ STEALTH_SCRIPT = """
 ERRORS_DIR = os.getenv("ERRORS_DIR", "errors")
 
 
+def setup_route_filtering(context):
+    """
+    Aborts non-essential heavy requests:
+    - Images (.png, .jpg, .jpeg, .webp, .gif, .ico)
+    - Media (.mp4, .mp3, etc.)
+    - Fonts (.woff, .woff2, .ttf)
+    - Ads and analytics (googlesyndication, doubleclick, etc.)
+    Reduces memory footprint, network I/O, and speeds up page transitions significantly.
+    """
+    def route_handler(route):
+        req = route.request
+        # Block resource types that do not impact DOM logic
+        if req.resource_type in ("image", "media", "font"):
+            return route.abort()
+
+        url_lower = req.url.lower()
+        if any(ad in url_lower for ad in ["googlesyndication", "googleadservices", "doubleclick", "adnxs", "analytics"]):
+            return route.abort()
+
+        return route.continue_()
+
+    context.route("**/*", route_handler)
+
+
 def human_delay(min_s: float = 0.35, max_s: float = 0.85):
-    """Introduces subtle non-uniform delay to prevent robotic click cadences."""
-    time.sleep(random.uniform(min_s, max_s))
+    """Introduces natural gaussian-curved delay to prevent robotic click cadences."""
+    mean = (min_s + max_s) / 2.0
+    stdev = (max_s - min_s) / 4.0
+    delay = random.gauss(mean, stdev)
+    clamped_delay = max(min_s, min(delay, max_s))
+    time.sleep(clamped_delay)
 
 
 def get_planet_url(coords: str, endpoint: str = "planet") -> str:

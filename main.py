@@ -18,6 +18,7 @@ from config import (
     TIMEZONE_ID,
     CHROMIUM_ARGS,
     STEALTH_SCRIPT,
+    setup_route_filtering,
     safe_goto,
     get_planet_url,
     save_error_snapshot,
@@ -102,7 +103,10 @@ def run():
 
         context = browser.new_context(**context_kwargs)
 
-        # 3. Mask navigator.webdriver and automation signatures
+        # 3. Setup high-performance route filtering (block images, fonts, media, and ads)
+        setup_route_filtering(context)
+
+        # 4. Mask navigator.webdriver and automation signatures
         context.add_init_script(STEALTH_SCRIPT)
 
         page = context.new_page()
@@ -143,35 +147,36 @@ def run():
                     queue_data = planner.load_queue_data()
                     main_coords = queue_data.get("main_planet", "3:7:1")
 
-                    # 1. Check Global Fleet Movements & Dispatch Discord Alerts
-                    incoming = defense.check_incoming_fleets(
-                        coords=main_coords)
+                    # 1. Sentry Watchdog: Check Global Fleet Movements & Dispatch Discord Alerts
+                    incoming = defense.check_incoming_fleets(coords=main_coords)
 
-                    for ev in incoming:
-                        m_type = ev.get("mission", "").lower()
-                        if any(h in m_type for h in ["attack", "angriff", "plunder", "raid", "spionage", "spy"]):
-                            discord_mgr.send_fleet_alert(
-                                title=f"Incoming Fleet: {ev['mission']}",
-                                description=f"Hostile movement detected heading towards **[{main_coords}]**!",
-                                fields={
-                                    "Target Planet": f"[{main_coords}]",
-                                    "ETA": f"{ev['remaining_seconds']}s ({round(ev['remaining_seconds'] / 60, 1)}m)",
-                                    "Arrival Time": ev.get("arrival_time", "N/A"),
-                                },
-                                urgent=True
-                            )
+                    hostile_incoming = [ev for ev in incoming if ev.get("is_hostile")]
+                    imminent_attack = any(
+                        ev.get("remaining_seconds", 9999) <= 300 for ev in hostile_incoming
+                    )
+
+                    for ev in hostile_incoming:
+                        discord_mgr.send_fleet_alert(
+                            title=f"Incoming Fleet: {ev['mission']}",
+                            description=f"Hostile movement detected heading towards **[{main_coords}]**!",
+                            fields={
+                                "Target Planet": f"[{main_coords}]",
+                                "ETA": f"{ev['remaining_seconds']}s ({round(ev['remaining_seconds'] / 60, 1)}m)",
+                                "Arrival Time": ev.get("arrival_time", "N/A"),
+                            },
+                            urgent=True
+                        )
 
                     # 2. Check Telemetry & Exposed Resources on Main Planet
                     resources = telemetry.get_resources()
-                    exposed = telemetry.calculate_exposed_resources(
-                        coords=main_coords)
 
-                    # 3. Process Build Queue Goals Across Empire (returns remaining seconds per planet)
-                    empire_timers = planner.process_goals()
-
-                    # 4. Safeguard Main Planet Resources
+                    # 3. Safeguard Main Planet Resources if imminent attack is threatening or excess exists
                     shipyard.protect_and_recycle_resources(
-                        exposed, coords=main_coords)
+                        coords=main_coords, emergency=imminent_attack
+                    )
+
+                    # 4. Process Build Queue Goals Across Empire (returns remaining seconds per planet)
+                    empire_timers = planner.process_goals()
 
                     # 5. Empire-Wide Queue Inspection & Adaptive Sleep
                     # Merge timers from the planner with main planet queues
@@ -192,11 +197,6 @@ def run():
 
                     active_seconds = [t for t in all_active_timers.values() if t > 0]
                     heartbeat_cap = random.randint(180, 300)
-
-                    imminent_attack = any(
-                        e["mission"].lower() == "attack" and e["remaining_seconds"] <= 300
-                        for e in incoming
-                    )
 
                     if imminent_attack:
                         sleep_time = 30
