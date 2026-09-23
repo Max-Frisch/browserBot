@@ -1,5 +1,6 @@
 import os
 import time
+import random
 from playwright.sync_api import Page, Error as PlaywrightError
 
 BASE_URL = "https://apex.gigrawars.de"
@@ -76,6 +77,11 @@ STEALTH_SCRIPT = """
 ERRORS_DIR = os.getenv("ERRORS_DIR", "errors")
 
 
+def human_delay(min_s: float = 0.35, max_s: float = 0.85):
+    """Introduces subtle non-uniform delay to prevent robotic click cadences."""
+    time.sleep(random.uniform(min_s, max_s))
+
+
 def get_planet_url(coords: str, endpoint: str = "planet") -> str:
     """Generates a route URL for a specific planet coordinate."""
     return f"{BASE_URL}/app/{coords}/{endpoint}"
@@ -84,25 +90,30 @@ def get_planet_url(coords: str, endpoint: str = "planet") -> str:
 def safe_goto(page: Page, url: str, wait_until: str = "domcontentloaded", retries: int = 2):
     """
     Navigates safely to a URL, catching navigation interruptions 
-    and transient session redirects.
+    and transient session redirects, with human-like jitter.
     """
     if page.url == url:
         return
 
+    # Subtle human hesitation before navigation
+    time.sleep(random.uniform(0.15, 0.4))
+
     for attempt in range(retries):
         try:
             page.goto(url, wait_until=wait_until)
+            # Settle pause after page loads
+            time.sleep(random.uniform(0.3, 0.65))
             return
         except PlaywrightError as e:
             if "is interrupted by another navigation" in str(e):
                 print(
                     f"[*] Navigation conflict detected for {url}. Waiting for browser to settle...")
-                time.sleep(2)
+                time.sleep(random.uniform(1.8, 2.4))
                 if page.url == url or "planet" in page.url:
                     return
             elif attempt == retries - 1:
                 raise e
-            time.sleep(1)
+            time.sleep(random.uniform(0.8, 1.3))
 
 
 def save_error_snapshot(page: Page, prefix: str = "error") -> tuple[str | None, str | None]:

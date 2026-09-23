@@ -19,6 +19,7 @@ from config import (
     safe_goto,
     get_planet_url,
     save_error_snapshot,
+    human_delay,
 )
 from telemetry import TelemetryManager
 from shipyard import ShipyardManager
@@ -32,14 +33,18 @@ def login_if_needed(page, context):
 
     back_to_game = page.get_by_role("link", name="BACK TO GAME")
     if back_to_game.count() > 0 and back_to_game.is_visible():
+        human_delay(0.3, 0.6)
         back_to_game.click()
         return
 
     email_field = page.get_by_role("textbox", name="Email address")
     if email_field.count() > 0 and email_field.is_visible():
         print("[*] Performing automated authentication...")
+        human_delay(0.4, 0.8)
         email_field.fill(EMAIL)
+        human_delay(0.2, 0.5)
         page.get_by_role("textbox", name="Password").fill(PASSWORD)
+        human_delay(0.3, 0.6)
         page.get_by_role("button", name="Log in").click()
         page.wait_for_load_state("networkidle")
         context.storage_state(path=AUTH_FILE)
@@ -108,28 +113,35 @@ def run():
                     exposed = telemetry.calculate_exposed_resources(
                         coords=main_coords)
 
-                    # 3. Process Build Queue Goals Across Empire
-                    planner.process_goals()
+                    # 3. Process Build Queue Goals Across Empire (returns remaining seconds per planet)
+                    empire_timers = planner.process_goals()
 
                     # 4. Safeguard Main Planet Resources
                     shipyard.protect_and_recycle_resources(
                         exposed, coords=main_coords)
 
-                    # 5. Queue Inspection & Capped Adaptive Sleep
-                    is_b, b_time = telemetry.get_queue_status(
-                        "construction", coords=main_coords)
+                    # 5. Empire-Wide Queue Inspection & Adaptive Sleep
+                    # Merge timers from the planner with main planet queues
+                    all_active_timers = dict(empire_timers)
+
+                    # Inspect live empire overview for any active ship queues
+                    overview = telemetry.get_empire_overview()
+                    for p, s_info in overview.get("ship_queues", {}).items():
+                        s_rem = s_info.get("remaining_seconds", 0)
+                        if s_rem > 0:
+                            all_active_timers[f"{p}:ship"] = s_rem
+
+                    # Inspect capital research queue (research only exists on main planet)
                     is_r, r_time = telemetry.get_queue_status(
                         "research", coords=main_coords)
-                    is_s, s_time = telemetry.get_queue_status(
-                        "ship", coords=main_coords)
+                    if is_r and r_time > 0:
+                        all_active_timers[f"{main_coords}:research"] = r_time
 
-                    active_timers = [t for t in [
-                        b_time, r_time, s_time] if t > 0]
+                    active_seconds = [t for t in all_active_timers.values() if t > 0]
                     heartbeat_cap = random.randint(180, 300)
 
                     imminent_attack = any(
-                        e["mission"].lower(
-                        ) == "attack" and e["remaining_seconds"] <= 300
+                        e["mission"].lower() == "attack" and e["remaining_seconds"] <= 300
                         for e in incoming
                     )
 
@@ -137,22 +149,31 @@ def run():
                         sleep_time = 30
                         print(
                             "[🚨 ALERT] Imminent attack detected! High-frequency monitoring active (30s sleep).")
-                    elif active_timers:
-                        shortest_timer = min(
-                            active_timers) + random.randint(5, 10)
+                    elif active_seconds:
+                        # Find the fastest upcoming build completion across the whole empire
+                        shortest_sec = min(active_seconds)
+                        # Add a humanized jitter buffer
+                        jitter_buffer = random.randint(4, 9)
+                        target_sleep = shortest_sec + jitter_buffer
 
-                        if shortest_timer < heartbeat_cap:
-                            sleep_time = shortest_timer
+                        # Find which planet/queue is triggering this wake-up
+                        trigger_target = next(
+                            (k for k, v in all_active_timers.items() if v == shortest_sec),
+                            "colony"
+                        )
+
+                        if target_sleep < heartbeat_cap:
+                            sleep_time = target_sleep
                             print(
-                                f"[*] Build finishing soon ({shortest_timer}s). Sleeping until completion...")
+                                f"[*] Active build on [{trigger_target}] finishing soon ({shortest_sec}s). Adaptive sleep for {sleep_time}s...")
                         else:
                             sleep_time = heartbeat_cap
                             print(
-                                f"[*] Long build active ({min(active_timers)}s remaining). Capped sleep heartbeat for {sleep_time}s...")
+                                f"[*] Long build active on [{trigger_target}] ({shortest_sec}s remaining). Capped sleep heartbeat for {sleep_time}s...")
                     else:
                         sleep_time = heartbeat_cap
                         print(
-                            f"[*] Queues free. Sleeping heartbeat ({sleep_time}s)...")
+                            f"[*] All queues idle across empire. Sleeping heartbeat ({sleep_time}s)...")
 
                 except PlaywrightError as err:
                     print(f"[⚠️ Network/Navigation Warning]: {err}")

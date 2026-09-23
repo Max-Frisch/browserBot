@@ -2,11 +2,13 @@ import os
 import json
 import re
 import time
+import random
 from playwright.sync_api import Page
-from config import BASE_URL, BUILD_QUEUE_FILE, safe_goto, get_planet_url
+from config import BASE_URL, BUILD_QUEUE_FILE, safe_goto, get_planet_url, human_delay
 from telemetry import TelemetryManager
 
-FAST_BUILD_THRESHOLD = 15
+# Builds under this duration remain in the fast parallel batch loop
+FAST_BUILD_THRESHOLD = 45
 
 # Actual GigraWars research topics parsed from UI / tech trees
 KNOWN_GIGRAWARS_RESEARCH = {
@@ -37,15 +39,22 @@ class PlannerManager:
     def remove_completed_goal(self, goal_to_remove: dict, coords: str = None, is_research: bool = False):
         """Removes a finished goal from the appropriate list in build_queue.json."""
         data = self.load_queue_data()
+        goal_name = goal_to_remove.get("name", "").lower()
+        goal_type = goal_to_remove.get("type", "")
+
         if is_research:
-            data["research_goals"] = [g for g in data.get(
-                "research_goals", []) if g != goal_to_remove]
+            data["research_goals"] = [
+                g for g in data.get("research_goals", [])
+                if not (g.get("name", "").lower() == goal_name and g.get("type") == goal_type)
+            ]
         elif coords and coords in data.get("planets", {}):
             data["planets"][coords] = [
-                g for g in data["planets"][coords] if g != goal_to_remove]
+                g for g in data["planets"][coords]
+                if not (g.get("name", "").lower() == goal_name and g.get("type") == goal_type)
+            ]
         self._save_queue_data(data)
         print(
-            f"[Planner JSON] Removed completed goal '{goal_to_remove.get('name')}' from build_queue.json.")
+            f"[Planner JSON] Removed completed goal '{goal_to_remove.get('name')}' from build_queue.json on [{coords or 'global'}].")
 
     def update_unit_goal_amount(self, goal: dict, built_amount: int, coords: str):
         """Deducts the built quantity from the requested unit order in build_queue.json."""
@@ -77,7 +86,7 @@ class PlannerManager:
         safe_goto(self.page, get_planet_url(coords, endpoint))
 
         target_row = self.page.locator("tr", has=self.page.locator(
-            "a", has_text=re.compile(rf"^{target_name}$", re.IGNORECASE)))
+            "a", has_text=re.compile(rf"\b{re.escape(target_name)}\b", re.IGNORECASE)))
         missing = []
 
         if target_row.count() > 0:
@@ -103,51 +112,97 @@ class PlannerManager:
                         break
         return missing
 
-    def process_goals(self):
-        """Processes goals across Building, Research, Ship, and Defense queues per planet using Parallel Batching."""
+    def process_goals(self) -> dict[str, int]:
+        """
+        Processes goals across Building, Research, Ship, and Defense queues per planet using Parallel Batching.
+        Leverages /app/empire overview for zero-overhead level validation and queue tracking.
+        Returns active_timers: {planet_coords: remaining_seconds} across the empire for adaptive sleep.
+        """
         queue_data = self.load_queue_data()
         main_coords = queue_data.get("main_planet", "3:7:1")
-        planets_dict = queue_data.get("planets", {})
         research_goals = queue_data.get("research_goals", [])
 
+        empire_active_timers: dict[str, int] = {}
+
+        # 0. Fetch live empire overview to fast-track levels and active timers
+        empire = self.telemetry.get_empire_overview(force_refresh=True)
+
+        # Pre-seed active building queues from empire overview
+        busy_building_planets: dict[str, float] = {}
+        for p, b_info in empire.get("building_queues", {}).items():
+            rem = b_info.get("remaining_seconds", 0)
+            if rem > 0:
+                busy_building_planets[p] = time.time() + rem
+                empire_active_timers[p] = rem
+
+        # Pre-validate all building goals against known empire building levels
+        planets_dict = queue_data.get("planets", {})
+        for coords, goals in list(planets_dict.items()):
+            for g in list(goals):
+                if g.get("type") == "building":
+                    g_name = g.get("name", "")
+                    target_lvl = g.get("level", 99)
+                    curr_lvl = empire.get("building_levels", {}).get(coords, {}).get(g_name.lower())
+                    if curr_lvl is not None and curr_lvl >= target_lvl:
+                        print(
+                            f"[Planner Empire] '{g_name}' already at level {curr_lvl} (Target: {target_lvl}) on [{coords}]. Marking complete.")
+                        self.remove_completed_goal(g, coords=coords)
+
         # 1. Process Global Research (Main Planet Only)
-        is_research_busy, _ = self.telemetry.get_queue_status(
+        is_research_busy, r_remaining = self.telemetry.get_queue_status(
             "research", coords=main_coords)
         if not is_research_busy and research_goals:
             research_goal = research_goals[0]
-            self._resolve_and_upgrade(
+            status, dur = self._resolve_and_upgrade(
                 research_goal, coords=main_coords, is_research=True)
+            if status in ("UPGRADED", "BUSY") and dur > 0:
+                empire_active_timers[f"{main_coords}:research"] = dur
+        elif is_research_busy and r_remaining > 0:
+            empire_active_timers[f"{main_coords}:research"] = r_remaining
 
         # 2. Parallel Building Loop across all planets
         while True:
             fresh_data = self.load_queue_data()
             planets_map = fresh_data.get("planets", {})
-            busy_building_planets = self.telemetry.get_busy_building_planets(
-                coords=main_coords)
-
             fast_build_durations = []
+            loop_now = time.time()
 
             for coords in list(planets_map.keys()):
+                # If we know this planet is currently busy with a long build, check if still running
                 if coords in busy_building_planets:
-                    continue
+                    remaining_busy = busy_building_planets[coords] - loop_now
+                    if remaining_busy > 3:
+                        empire_active_timers[coords] = int(remaining_busy)
+                        continue
+                    else:
+                        del busy_building_planets[coords]
 
                 current_goals = planets_map.get(coords, [])
                 building_goal = next(
                     (g for g in current_goals if g.get("type") == "building"), None)
 
                 if building_goal:
-                    build_sec = self._resolve_and_upgrade(
+                    status, dur = self._resolve_and_upgrade(
                         building_goal, coords=coords)
-                    if build_sec is not None and build_sec > 0:
-                        if build_sec <= FAST_BUILD_THRESHOLD:
-                            fast_build_durations.append(build_sec)
+
+                    if status == "UPGRADED":
+                        if dur <= FAST_BUILD_THRESHOLD:
+                            fast_build_durations.append(dur)
                         else:
-                            busy_building_planets[coords] = build_sec
+                            busy_building_planets[coords] = time.time() + dur
+                            empire_active_timers[coords] = dur
+                    elif status == "BUSY":
+                        busy_building_planets[coords] = time.time() + dur
+                        empire_active_timers[coords] = dur
+                    elif status == "COMPLETED":
+                        pass  # Goal was satisfied and removed from JSON
 
             if fast_build_durations:
-                wait_time = max(2, max(fast_build_durations) + 2)
+                # Add human-like dynamic buffer to batch completion wait
+                buffer_sec = random.uniform(2.5, 4.2)
+                wait_time = max(fast_build_durations) + buffer_sec
                 print(
-                    f"[*] Parallel batch queued ({fast_build_durations}s). Waiting {wait_time}s for batch completion...")
+                    f"[*] Parallel batch queued ({fast_build_durations}s). Waiting {round(wait_time, 1)}s for batch completion...")
                 time.sleep(wait_time)
             else:
                 break
@@ -160,8 +215,18 @@ class PlannerManager:
             for u_goal in unit_goals:
                 self._build_units(u_goal, coords=coords)
 
-    def _resolve_and_upgrade(self, goal: dict, coords: str = "3:7:1", is_research: bool = False) -> int | None:
-        """Resolves prerequisites recursively and triggers building/research upgrades."""
+        return empire_active_timers
+
+    def _resolve_and_upgrade(self, goal: dict, coords: str = "3:7:1", is_research: bool = False) -> tuple[str, int]:
+        """
+        Resolves prerequisites recursively and triggers building/research upgrades.
+        Returns a tuple: (status: str, duration_sec: int)
+        Statuses:
+          'UPGRADED': Upgrade button was clicked, duration is the build duration.
+          'BUSY': Queue is already busy, duration is remaining seconds.
+          'COMPLETED': Current level >= target level, goal satisfied.
+          'UNAVAILABLE': Upgrade button missing or prerequisite locked.
+        """
         goal_type = goal.get("type", "research" if is_research else "building")
         goal_name = goal.get("name")
         target_level = goal.get("level", 99)
@@ -199,42 +264,75 @@ class PlannerManager:
             target_unix_str = timer_loc.get_attribute("data-time")
             if target_unix_str:
                 remaining = max(0, int(target_unix_str) - int(time.time()))
+
+                # If queue timer has only <= 3 seconds left, settle and reload
+                if 0 < remaining <= 3:
+                    settle_sec = remaining + random.uniform(1.0, 1.8)
+                    print(
+                        f"[*] [{coords}] {endpoint.capitalize()} queue has only {remaining}s left. Settling {round(settle_sec, 1)}s for completion...")
+                    time.sleep(settle_sec)
+                    self.page.reload()
+                    self.page.wait_for_load_state("networkidle")
+                    timer_loc = self.page.locator(".timer-timestamp").first
+                    target_unix_str = timer_loc.get_attribute(
+                        "data-time") if (timer_loc.count() > 0 and timer_loc.is_visible()) else None
+                    remaining = max(
+                        0, int(target_unix_str) - int(time.time())) if target_unix_str else 0
+
                 if remaining > 0:
                     print(
                         f"[-] [{coords}] {endpoint.capitalize()} queue is currently busy ({remaining}s remaining). Skipping upgrade.")
-                    return remaining
+                    return ("BUSY", remaining)
 
         item_card = self.page.locator(
             ".full-w-entry", has_text=re.compile(rf"\b{re.escape(goal_name)}\b", re.IGNORECASE)).first
         if item_card.count() == 0:
             print(
                 f"[-] [{coords}] Item card for '{goal_name}' not found on {endpoint}.")
-            return None
+            return ("UNAVAILABLE", 0)
 
         card_text = item_card.inner_text()
-        lvl_match = re.search(r"(?:Level|Stufe)\s*(\d+)",
-                              card_text, re.IGNORECASE)
+
+        # Parse current level ONLY from the item's own header/title section
+        # Never match prerequisite description text like "Requires Drilling Tower Level 10"
+        header_text = re.split(
+            r"requires|benötigt|prerequisite|duration|dauer|kosten|cost",
+            card_text,
+            flags=re.IGNORECASE
+        )[0]
+
+        lvl_match = re.search(r"(?:Level|Stufe)\s*(\d+)", header_text, re.IGNORECASE)
+        if not lvl_match:
+            # Fallback to first line of the card
+            first_line = card_text.splitlines()[0] if card_text else ""
+            lvl_match = re.search(r"(?:Level|Stufe)\s*(\d+)", first_line, re.IGNORECASE)
+
         current_level = int(lvl_match.group(1)) if lvl_match else 0
 
-        if current_level >= target_level:
-            self.remove_completed_goal(
-                goal, coords=coords, is_research=is_research)
-            return None
-
         upgrade_btn = item_card.get_by_role("link", name=re.compile(
-            r"(Upgrade|Research)", re.IGNORECASE)).first
+            r"(Upgrade|Research|Ausbauen|Erforschen)", re.IGNORECASE)).first
 
-        if upgrade_btn.is_visible():
-            # --- SAFEGUARD 2: Button Target Level Validation ---
+        # Cross-validate current level against upgrade button text if available
+        if upgrade_btn.count() > 0 and upgrade_btn.is_visible():
             btn_text = upgrade_btn.inner_text()
             btn_lvl_match = re.search(r"(\d+)", btn_text)
             if btn_lvl_match:
                 next_level = int(btn_lvl_match.group(1))
                 if next_level > target_level:
                     print(
-                        f"[Planner Filter] [{coords}] '{goal_name}' button targets level {next_level}, but goal target is {target_level}. Queue active or goal satisfied.")
-                    return None
+                        f"[Planner Filter] [{coords}] '{goal_name}' button targets level {next_level}, but goal target is {target_level}. Goal satisfied.")
+                    self.remove_completed_goal(
+                        goal, coords=coords, is_research=is_research)
+                    return ("COMPLETED", 0)
+                # Next level tells us the exact current level
+                current_level = max(current_level, next_level - 1)
 
+        if current_level >= target_level:
+            self.remove_completed_goal(
+                goal, coords=coords, is_research=is_research)
+            return ("COMPLETED", 0)
+
+        if upgrade_btn.count() > 0 and upgrade_btn.is_visible():
             dur_match = re.search(
                 r"Duration\s*(\d{2}):(\d{2}):(\d{2})", card_text, re.IGNORECASE)
             build_seconds = 0
@@ -243,14 +341,22 @@ class PlannerManager:
                 build_seconds = h * 3600 + m * 60 + s
 
             print(f"[*] [{coords}] Upgrading '{goal_name}' ({current_level} -> {current_level + 1} | Target: {target_level}) | Build Time: {build_seconds}s")
+            
+            # Subtle human hesitation before clicking upgrade
+            human_delay(0.35, 0.75)
             upgrade_btn.click()
             self.page.wait_for_load_state("networkidle")
 
-            return build_seconds
+            # If target reached with this upgrade, remove goal from queue
+            if current_level + 1 >= target_level:
+                self.remove_completed_goal(
+                    goal, coords=coords, is_research=is_research)
+
+            return ("UPGRADED", build_seconds)
         else:
             print(
-                f"[-] [{coords}] Upgrade button for '{goal_name}' unavailable (insufficient resources?).")
-            return None
+                f"[-] [{coords}] Upgrade button for '{goal_name}' unavailable (insufficient resources or locked).")
+            return ("UNAVAILABLE", 0)
 
     def _build_units(self, goal: dict, coords: str = "3:7:1"):
         """Orders ships or defense turrets, handling partial orders and JSON cleanup."""
@@ -321,6 +427,7 @@ class PlannerManager:
         print(f"[*] [{coords}] Ordering {build_quantity}x '{goal_name}' (Requested: {requested_amount} | Max Affordable: {max_affordable})...")
 
         input_box.fill(str(build_quantity))
+        human_delay(0.3, 0.65)
         global_build_btn.click()
         self.page.wait_for_load_state("networkidle")
 
