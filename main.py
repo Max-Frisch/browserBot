@@ -246,7 +246,7 @@ def run():
                     # Update latest snapshot for Discord !snapshot command
                     take_cycle_snapshot()
 
-                    # Dispatch periodic heartbeat log to Discord #bot-logs
+                    # Dispatch periodic heartbeat log to Discord #bot-logs and sync build queue
                     if cycle_count % 5 == 1 or imminent_attack:
                         discord_mgr.send_bot_log(
                             title=f"Cycle #{cycle_count} Heartbeat",
@@ -255,6 +255,12 @@ def run():
                                 "Active Queues": str(len(active_seconds)),
                                 "Incoming Fleets": str(len(incoming)),
                             }
+                        )
+
+                    # Periodically sync build_queue.json file to #build-queue (every 10 cycles or on first cycle)
+                    if cycle_count % 10 == 1:
+                        discord_mgr.send_build_queue(
+                            title=f"📋 Build Queue Sync (Cycle #{cycle_count})"
                         )
 
                 except PlaywrightError as err:

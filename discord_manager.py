@@ -14,6 +14,7 @@ from config import (
     DISCORD_CHANNEL_BOT_LOGS,
     DISCORD_CHANNEL_COMMANDS,
     DISCORD_CHANNEL_UNIVERSE_MAPPING,
+    DISCORD_CHANNEL_BUILD_QUEUE,
     BUILD_QUEUE_FILE,
 )
 
@@ -151,7 +152,8 @@ class DiscordManager:
                                 p_lines.append(f"• 🛡️ {g.get('name')} x{g.get('amount')}")
                         embed.add_field(name=f"🪐 [{p}]", value="\n".join(p_lines), inline=False)
 
-                await ctx.send(embed=embed)
+                file = discord.File(BUILD_QUEUE_FILE, filename="build_queue.json")
+                await ctx.send(embed=embed, file=file)
             except Exception as exc:
                 await ctx.send(f"❌ Error reading queue: `{exc}`")
 
@@ -456,6 +458,63 @@ class DiscordManager:
             await channel.send(embed=embed, file=file)
 
         asyncio.run_coroutine_threadsafe(_coro(), self.loop)
+
+    def send_build_queue(self, file_path: str = BUILD_QUEUE_FILE, title: str = "📋 Build Queue Sync"):
+        """Periodically uploads the current build_queue.json and embed overview to #build-queue."""
+        if not self.loop or not self.bot.is_ready() or not DISCORD_CHANNEL_BUILD_QUEUE:
+            return
+
+        async def _coro():
+            channel = self.bot.get_channel(DISCORD_CHANNEL_BUILD_QUEUE)
+            if not channel:
+                return
+
+            try:
+                if not os.path.exists(file_path):
+                    return
+
+                with open(file_path, "r", encoding="utf-8") as f:
+                    q_data = json.load(f)
+
+                main_p = q_data.get("main_planet", "3:7:1")
+                research_goals = q_data.get("research_goals", [])
+                planets = q_data.get("planets", {})
+
+                total_goals = len(research_goals) + sum(len(goals) for goals in planets.values())
+                active_planets_with_goals = sum(1 for goals in planets.values() if len(goals) > 0)
+
+                embed = discord.Embed(
+                    title=title,
+                    description=f"Capital: **[{main_p}]** | Total Pending Goals: **{total_goals}** across **{active_planets_with_goals}** planet(s)",
+                    color=0x3498DB,
+                    timestamp=discord.utils.utcnow()
+                )
+
+                if research_goals:
+                    r_text = "\n".join([f"• 🔬 {g.get('name')} (Lvl {g.get('level')})" for g in research_goals])
+                    embed.add_field(name="🔬 Capital Research", value=r_text, inline=False)
+
+                for p, goals in planets.items():
+                    if goals:
+                        p_lines = []
+                        for g in goals[:8]:  # Preview first 8 goals
+                            if g.get("type") == "building":
+                                p_lines.append(f"• 🏗️ {g.get('name')} -> Lvl {g.get('level')}")
+                            elif g.get("type") == "ship":
+                                p_lines.append(f"• 🚀 {g.get('name')} x{g.get('amount')}")
+                            elif g.get("type") == "defense":
+                                p_lines.append(f"• 🛡️ {g.get('name')} x{g.get('amount')}")
+                        if len(goals) > 8:
+                            p_lines.append(f"*... and {len(goals) - 8} more goals (see attached JSON)*")
+                        embed.add_field(name=f"🪐 [{p}] ({len(goals)} goals)", value="\n".join(p_lines), inline=False)
+
+                file = discord.File(file_path, filename="build_queue.json")
+                await channel.send(embed=embed, file=file)
+            except Exception as e:
+                print(f"[⚠️ Discord Build Queue Upload Error]: {e}")
+
+        asyncio.run_coroutine_threadsafe(_coro(), self.loop)
+
 
 
 if __name__ == "__main__":
