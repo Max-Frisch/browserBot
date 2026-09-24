@@ -451,3 +451,75 @@ class PlannerManager:
         self.page.wait_for_load_state("networkidle")
 
         self.update_unit_goal_amount(goal, build_quantity, coords=coords)
+
+    def clone_planet_blueprint(self, source_coords: str, target_coords_list: list[str]) -> dict:
+        """
+        Takes the current building levels from `source_coords` (from live /app/empire telemetry)
+        and populates the build queues of all planets in `target_coords_list` to match the source planet.
+        """
+        empire = self.telemetry.get_empire_overview(force_refresh=True)
+        source_levels = empire.get("building_levels", {}).get(source_coords, {})
+
+        if not source_levels:
+            print(f"[⚠️ Blueprint Clone] Source planet [{source_coords}] has no building data in empire overview.")
+            return {"success": False, "message": f"Source planet [{source_coords}] not found in empire overview."}
+
+        queue_data = self.load_queue_data()
+        if "planets" not in queue_data:
+            queue_data["planets"] = {}
+
+        report = {}
+        # GigraWars standard building display name map
+        display_names = {
+            "iron mine": "Iron Mine",
+            "lutinum refinery": "Lutinum Refinery",
+            "water pump": "Water Pump",
+            "solar power plant": "Solar Power Plant",
+            "fusion power plant": "Fusion Power Plant",
+            "hydrogen drill": "Hydrogen Drill",
+            "iron storage": "Iron Storage",
+            "lutinum storage": "Lutinum Storage",
+            "water storage": "Water Storage",
+            "hydrogen tanks": "Hydrogen Tanks",
+            "research center": "Research Center",
+            "ship factory": "Ship Factory",
+            "defense platform": "Defense Platform",
+            "trading post": "Trading Post",
+        }
+
+        for target in target_coords_list:
+            if target == source_coords:
+                continue
+
+            target_curr = empire.get("building_levels", {}).get(target, {})
+            if target not in queue_data["planets"]:
+                queue_data["planets"][target] = []
+
+            existing_goals = queue_data["planets"][target]
+            added_goals_count = 0
+
+            for b_key, src_lvl in source_levels.items():
+                if src_lvl <= 0:
+                    continue
+                tgt_lvl = target_curr.get(b_key, 0)
+                if tgt_lvl < src_lvl:
+                    b_title = display_names.get(b_key, b_key.title())
+                    # Check if already in queue with at least this target level
+                    already_queued = any(
+                        g.get("type") == "building" and g.get("name", "").lower() == b_title.lower() and g.get("level", 0) >= src_lvl
+                        for g in existing_goals
+                    )
+                    if not already_queued:
+                        existing_goals.append({
+                            "type": "building",
+                            "name": b_title,
+                            "level": src_lvl
+                        })
+                        added_goals_count += 1
+
+            report[target] = added_goals_count
+
+        self._save_queue_data(queue_data)
+        print(f"[+] Blueprint successfully cloned from [{source_coords}] to {target_coords_list}: {report}")
+        return {"success": True, "report": report, "source": source_coords}
+

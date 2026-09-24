@@ -161,6 +161,7 @@ def run():
                     imminent_attack = any(
                         ev.get("remaining_seconds", 9999) <= 300 for ev in hostile_incoming
                     )
+                    min_hostile_eta = min((ev.get("remaining_seconds", 9999) for ev in hostile_incoming), default=0)
 
                     for ev in hostile_incoming:
                         discord_mgr.send_fleet_alert(
@@ -174,20 +175,27 @@ def run():
                             urgent=True
                         )
 
-                    # 2. Check Telemetry & Exposed Resources on Main Planet
-                    resources = telemetry.get_resources()
+                    # 2. Multi-Planet Emergency Bunker Guard
+                    # Safeguards exposed liquid resources on ANY planet strictly during hostile attacks,
+                    # or automatically recycles/refunds decoy queues once peace is restored or timer reaches safety buffer.
+                    overview = telemetry.get_empire_overview()
+                    all_planets = overview.get("planets", [main_coords])
 
-                    # 3. Safeguard Main Planet Resources if imminent attack is threatening or excess exists
-                    shipyard.protect_and_recycle_resources(
-                        coords=main_coords, emergency=imminent_attack
-                    )
+                    bunker_precision_timers = {}
+                    for p in all_planets:
+                        wake_timer = shipyard.protect_and_recycle_resources(
+                            coords=p, emergency=imminent_attack, hostile_eta=min_hostile_eta
+                        )
+                        if wake_timer > 0:
+                            bunker_precision_timers[f"{p}:bunker"] = wake_timer
 
-                    # 4. Process Build Queue Goals Across Empire (returns remaining seconds per planet)
+                    # 3. Process Build Queue Goals Across Empire (returns remaining seconds per planet)
                     empire_timers = planner.process_goals()
 
-                    # 5. Empire-Wide Queue Inspection & Adaptive Sleep
-                    # Merge timers from the planner with main planet queues
+                    # 4. Empire-Wide Queue Inspection & Adaptive Sleep
+                    # Merge timers from planner, shipyard queues, and bunker guard
                     all_active_timers = dict(empire_timers)
+                    all_active_timers.update(bunker_precision_timers)
 
                     # Inspect live empire overview for any active ship queues
                     overview = telemetry.get_empire_overview()

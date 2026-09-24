@@ -67,6 +67,7 @@ class DiscordManager:
             embed.add_field(name="!status", value="Displays live resources and queues from `/app/empire`", inline=False)
             embed.add_field(name="!queue", value="Shows the active `build_queue.json`", inline=False)
             embed.add_field(name="!add <coords> <building> <level>", value="Queue a building (e.g. `!add 2:109:1 Iron Mine 18`)", inline=False)
+            embed.add_field(name="!clone <src_coords> <tgt1> <tgt2>...", value="Clone building blueprint (e.g. `!clone 2:109:1 2:43:1 2:43:2 4:48:1`)", inline=False)
             embed.add_field(name="!addship <coords> <ship> <amount>", value="Queue ships (e.g. `!addship 3:7:1 Jackal 10`)", inline=False)
             embed.add_field(name="!remove <coords> <name>", value="Removes a queued goal", inline=False)
             embed.add_field(name="!snapshot", value="Captures and uploads live browser screenshot", inline=False)
@@ -188,6 +189,94 @@ class DiscordManager:
                 await ctx.send(f"✅ Added to queue: **{building_name} Lvl {target_lvl}** on planet **[{coords}]**.")
             except Exception as exc:
                 await ctx.send(f"❌ Error adding goal: `{exc}`")
+
+        @self.bot.command(name="clone")
+        async def clone_blueprint_cmd(ctx, src_coords: str, *target_coords_args):
+            """Usage: !clone 2:109:1 2:43:1 2:43:2 2:43:3 4:48:1 4:48:2 4:48:3"""
+            if not is_admin(ctx):
+                return
+            if not target_coords_args:
+                await ctx.send("Usage: `!clone <source_coords> <target_coords_1> <target_coords_2>...`\nExample: `!clone 2:109:1 2:43:1 2:43:2 4:48:1`")
+                return
+
+            if not self.telemetry_getter:
+                await ctx.send("⚠️ Telemetry service is currently initializing...")
+                return
+
+            try:
+                data = self.telemetry_getter()
+                building_levels = data.get("building_levels", {})
+                source_levels = building_levels.get(src_coords, {})
+
+                if not source_levels:
+                    await ctx.send(f"❌ Source planet **[{src_coords}]** has no building data available in telemetry.")
+                    return
+
+                with open(BUILD_QUEUE_FILE, "r", encoding="utf-8") as f:
+                    q_data = json.load(f)
+
+                if "planets" not in q_data:
+                    q_data["planets"] = {}
+
+                display_names = {
+                    "iron mine": "Iron Mine",
+                    "lutinum refinery": "Lutinum Refinery",
+                    "water pump": "Water Pump",
+                    "solar power plant": "Solar Power Plant",
+                    "fusion power plant": "Fusion Power Plant",
+                    "hydrogen drill": "Hydrogen Drill",
+                    "iron storage": "Iron Storage",
+                    "lutinum storage": "Lutinum Storage",
+                    "water storage": "Water Storage",
+                    "hydrogen tanks": "Hydrogen Tanks",
+                    "research center": "Research Center",
+                    "ship factory": "Ship Factory",
+                    "defense platform": "Defense Platform",
+                    "trading post": "Trading Post",
+                }
+
+                report = {}
+                for tgt in target_coords_args:
+                    if tgt == src_coords:
+                        continue
+                    if tgt not in q_data["planets"]:
+                        q_data["planets"][tgt] = []
+
+                    target_curr = building_levels.get(tgt, {})
+                    existing_goals = q_data["planets"][tgt]
+                    added_count = 0
+
+                    for b_key, src_lvl in source_levels.items():
+                        if src_lvl <= 0:
+                            continue
+                        tgt_lvl = target_curr.get(b_key, 0)
+                        if tgt_lvl < src_lvl:
+                            b_title = display_names.get(b_key, b_key.title())
+                            already_queued = any(
+                                g.get("type") == "building" and g.get("name", "").lower() == b_title.lower() and g.get("level", 0) >= src_lvl
+                                for g in existing_goals
+                            )
+                            if not already_queued:
+                                existing_goals.append({
+                                    "type": "building",
+                                    "name": b_title,
+                                    "level": src_lvl
+                                })
+                                added_count += 1
+                    report[tgt] = added_count
+
+                with open(BUILD_QUEUE_FILE, "w", encoding="utf-8") as f:
+                    json.dump(q_data, f, indent=2)
+
+                summary_lines = [f"• **[{tgt}]**: {cnt} building goal(s) queued" for tgt, cnt in report.items()]
+                embed = discord.Embed(
+                    title="🏗️ Blueprint Cloned Successfully",
+                    description=f"Source Blueprint: **[{src_coords}]**\n\n" + "\n".join(summary_lines),
+                    color=0x2ECC71,
+                )
+                await ctx.send(embed=embed)
+            except Exception as exc:
+                await ctx.send(f"❌ Error cloning blueprint: `{exc}`")
 
         @self.bot.command(name="addship")
         async def add_ship_cmd(ctx, coords: str, *args):
