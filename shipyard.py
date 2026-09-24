@@ -126,34 +126,43 @@ class ShipyardManager:
 
         return catalog
 
-    def protect_and_recycle_resources(self, coords: str = "3:7:1", emergency: bool = False, min_exposed_threshold: int = 5000):
+    def protect_and_recycle_resources(self, coords: str = "3:7:1", emergency: bool = False, hostile_eta: int = 0) -> int:
         """
-        Dynamically safeguards exposed plunderable resources on a planet.
-        - Checks true unplunderable storage thresholds (from Storage/Tank levels).
-        - If exposed resources exist (and emergency=True or unplundered excess exceeds min_exposed_threshold):
-          hides liquid resources inside the shipyard queue.
-        - CRITICAL RULE: Selects the LONGEST build-time unit first (e.g. Cougar, Falcon, Trader)
-          instead of fast units (Jackal/Probe) that could finish during an attack and get destroyed!
-        - If queue is within 30 seconds of completing (or after threat passes), cancels the queue to recover 100% resources.
+        Dynamically safeguards exposed plunderable resources on ANY planet.
+        - STRICT EMERGENCY GUARD: Only bunkers liquid resources if an actual hostile fleet attack is incoming (emergency=True).
+        - Peacetime: Does NOT lock up shipyards or risk accidental ship construction.
+        - During emergency:
+            * Identifies exposed liquid resources exceeding safe storage limits.
+            * Sorts affordable ships by LONGEST build duration (e.g. Cougar, Falcon, Colony Ship).
+            * Hides resources in the shipyard queue.
+        - Recycling: If hostile attack has passed or queue is within 120s of unit completion, cancels queue immediately to return 100% resources.
+        Returns the minimum required wake-up timer (seconds) if a decoy queue is active, or 0.
         """
         is_busy, remaining_sec = self.telemetry.get_queue_status("ship", coords=coords)
 
-        # 1. Recycle/Cancel queue before it finishes building so liquid resources return
-        if is_busy and remaining_sec <= 45:
-            print(f"[*] [{coords}] Shipyard decoy queue near completion ({remaining_sec}s)! Recycling queue...")
-            self.cancel_all_ship_queues(coords=coords)
-            return
+        # 1. Active Decoy Recycling Condition:
+        # If queue is active, but NO emergency exists anymore (hostile fleet has passed/turned back), OR queue is getting dangerously close to finishing (<= 90s)
+        if is_busy:
+            if not emergency:
+                print(f"[+] [{coords}] Threat cleared / peace restored. Canceling shipyard decoy queue to refund 100% resources...")
+                self.cancel_all_ship_queues(coords=coords)
+                return 0
+            elif remaining_sec <= 90:
+                print(f"[*] [{coords}] Shipyard decoy unit near completion ({remaining_sec}s remaining)! Recycling queue before it finishes...")
+                self.cancel_all_ship_queues(coords=coords)
+                # If emergency is still active, re-queue fresh long-duration unit to keep resources hidden
+                is_busy = False
 
         # 2. Check true unplunderable limit and exposed amounts
         exposed_data = self.telemetry.calculate_exposed_resources(coords=coords)
         total_exposed = sum(exposed_data.get(r, 0) for r in ["iron", "lutinum", "hydrogen"])
 
-        # Only trigger bunker guard if an actual attack is incoming or exposed excess is significant
-        if not is_busy and (emergency or total_exposed >= min_exposed_threshold):
-            print(f"[*] [{coords}] Bunker Guard Alert! (Total plunderable: {int(total_exposed)} | Emergency={emergency}). Inspecting shipyard catalog...")
+        # 3. Only trigger bunker guard if an actual incoming attack is confirmed!
+        if emergency and not is_busy and total_exposed > 1000:
+            print(f"[🚨 EMERGENCY BUNKER GUARD] [{coords}] Hostile attack incoming (ETA: {hostile_eta}s | Plunderable: {int(total_exposed)}). Sheltering resources...")
             catalog = self.parse_ship_catalog(coords=coords)
             if not catalog:
-                return
+                return 0
 
             # Find all ships that we can actually build (max_affordable > 0 and input_id exists)
             buildable_ships = [
@@ -162,24 +171,21 @@ class ShipyardManager:
             ]
 
             if not buildable_ships:
-                print(f"[*] [{coords}] No ships affordable or ship factory inactive. Cannot hide resources.")
-                return
+                print(f"[*] [{coords}] No ships affordable or ship factory inactive. Cannot hide resources in shipyard.")
+                return 0
 
-            # Sort by longest build duration first to maximize safe-bunker time!
+            # Sort by longest build duration first to maximize safe-bunker time
             buildable_ships.sort(key=lambda s: s.get("build_seconds", 0), reverse=True)
 
-            # Choose the primary long-duration anchor ship
+            # Choose the longest-duration anchor ship
             anchor_ship = buildable_ships[0]
             anchor_name = anchor_ship["name"]
             anchor_input_id = anchor_ship["input_id"]
             anchor_max = anchor_ship["max_affordable"]
             anchor_duration = anchor_ship.get("build_seconds", 0)
 
-            # Queue at least 1 or up to what covers the exposed pile
-            # (Queueing max affordable locks the maximum possible resources)
             qty_to_queue = anchor_max
-
-            print(f"[+] [{coords}] Bunkering excess resources into {qty_to_queue}x '{anchor_name}' (Build time: {anchor_duration}s per unit)...")
+            print(f"[+] [{coords}] Bunkering excess resources into {qty_to_queue}x '{anchor_name}' ({anchor_duration}s per unit)...")
 
             input_loc = self.page.locator(f"#{anchor_input_id}")
             global_build_btn = self.page.locator("#add_combat_units_to_queue_send, button[type='submit']").first
@@ -189,3 +195,12 @@ class ShipyardManager:
                 global_build_btn.click()
                 self.page.wait_for_load_state("networkidle")
                 print(f"[+] [{coords}] Successfully sheltered resources in '{anchor_name}' shipyard queue!")
+
+                # Return precision sleep timer (wake up 90 seconds before unit completes or right after hostile fleet ETA)
+                return max(15, anchor_duration - 90)
+
+        if is_busy and remaining_sec > 90:
+            # Wake up in time before unit completes
+            return max(15, remaining_sec - 90)
+
+        return 0
