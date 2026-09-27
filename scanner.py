@@ -39,15 +39,15 @@ MAP_FILE_DEFAULT = "universe_map.json"
 
 
 def get_main_planet_coords() -> str:
-    """Retrieves primary base coordinates from build_queue.json, defaulting to 3:7:1."""
+    """Retrieves primary base coordinates from build_queue.json, defaulting to 2:30:3."""
     if os.path.exists(BUILD_QUEUE_FILE):
         try:
             with open(BUILD_QUEUE_FILE, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                return data.get("main_planet", "3:7:1")
+                return data.get("main_planet", "2:30:3")
         except Exception:
             pass
-    return "3:7:1"
+    return "2:30:3"
 
 
 def load_universe_map(filepath: str = MAP_FILE_DEFAULT) -> dict:
@@ -60,7 +60,8 @@ def load_universe_map(filepath: str = MAP_FILE_DEFAULT) -> dict:
                     data["galaxies"] = {}
                 return data
         except Exception as exc:
-            print(f"[!] Warning: Could not parse existing {filepath}: {exc}. Initializing fresh map.")
+            print(
+                f"[!] Warning: Could not parse existing {filepath}: {exc}. Initializing fresh map.")
 
     return {
         "last_updated": int(time.time()),
@@ -116,7 +117,8 @@ def parse_galaxy_dom(html: str) -> List[Dict[str, Any]]:
     Returns a list of structured planet objects matching the required schema.
     """
     # Find all planet slot number markers
-    matches = list(re.finditer(r"<div[^>]*class=[\"\'][^\"\']*planet-number[^\"\']*[\"\'][^>]*>\s*(\d+)", html))
+    matches = list(re.finditer(
+        r"<div[^>]*class=[\"\'][^\"\']*planet-number[^\"\']*[\"\'][^>]*>\s*(\d+)", html))
     slots: List[Dict[str, Any]] = []
 
     for i, m in enumerate(matches):
@@ -126,15 +128,19 @@ def parse_galaxy_dom(html: str) -> List[Dict[str, Any]]:
         block = html[start:end]
 
         # Extract user container
-        user_m = re.search(r"<div[^>]*class=[\"\'][^\"\']*planet-user[^\"\']*[\"\'][^>]*>(.*?)</div>", block, flags=re.DOTALL)
+        user_m = re.search(
+            r"<div[^>]*class=[\"\'][^\"\']*planet-user[^\"\']*[\"\'][^>]*>(.*?)</div>", block, flags=re.DOTALL)
         user_html = user_m.group(1) if user_m else ""
 
         # Player Name (inside <a href=".../player/UUID">Name</a> or direct text)
-        player_m = re.search(r"<a[^>]*href=[\"\'][^\"\']*/player/[^\"\']+[\"\'][^>]*>(.*?)</a>", user_html, flags=re.DOTALL)
-        player_name = re.sub(r"<[^>]+>", "", player_m.group(1)).strip() if player_m else None
+        player_m = re.search(
+            r"<a[^>]*href=[\"\'][^\"\']*/player/[^\"\']+[\"\'][^>]*>(.*?)</a>", user_html, flags=re.DOTALL)
+        player_name = re.sub(
+            r"<[^>]+>", "", player_m.group(1)).strip() if player_m else None
 
         # Alliance Name/Tag (<a href=".../alliance/show/TAG">[-TAG-]</a> or [TAG])
-        alliance_m = re.search(r"<a[^>]*href=[\"\'][^\"\']*/alliance/[^\"\']+[\"\'][^>]*>(.*?)</a>", user_html, flags=re.DOTALL)
+        alliance_m = re.search(
+            r"<a[^>]*href=[\"\'][^\"\']*/alliance/[^\"\']+[\"\'][^>]*>(.*?)</a>", user_html, flags=re.DOTALL)
         if alliance_m:
             alliance = re.sub(r"<[^>]+>", "", alliance_m.group(1)).strip()
         else:
@@ -142,7 +148,8 @@ def parse_galaxy_dom(html: str) -> List[Dict[str, Any]]:
             alliance = b_m.group(0).strip() if b_m else None
 
         # Extract planet name / status info
-        info_m = re.search(r"<div[^>]*class=[\"\'][^\"\']*planet-info[^\"\']*[\"\'][^>]*>(.*?)</div>", block, flags=re.DOTALL)
+        info_m = re.search(
+            r"<div[^>]*class=[\"\'][^\"\']*planet-info[^\"\']*[\"\'][^>]*>(.*?)</div>", block, flags=re.DOTALL)
         info_html = info_m.group(1) if info_m else ""
         info_txt = re.sub(r"<[^>]+>", " ", info_html).strip()
 
@@ -193,7 +200,8 @@ def scan_solar_system(page: Page, main_coords: str, galaxy: int, system: int) ->
     and extracts slot statistics.
     """
     # Primary URL specification
-    target_query_url = get_planet_url(main_coords, f"galaxy?galaxy={galaxy}&system={system}")
+    target_query_url = get_planet_url(
+        main_coords, f"galaxy?galaxy={galaxy}&system={system}")
     target_path_url = get_planet_url(main_coords, f"galaxy/{galaxy}/{system}")
 
     # Navigate via safe_goto
@@ -202,7 +210,8 @@ def scan_solar_system(page: Page, main_coords: str, galaxy: int, system: int) ->
     # In GigraWars, routing to /galaxy with query params may default to home system.
     # Check if the page reflects the intended galaxy and system; if not, route via path.
     try:
-        page.wait_for_selector(".galaxy-view, input[name='system']", timeout=4000)
+        page.wait_for_selector(
+            ".galaxy-view, input[name='system']", timeout=4000)
         sys_input = page.locator("input[name='system']")
         if sys_input.count() > 0:
             current_sys = sys_input.first.input_value()
@@ -289,12 +298,14 @@ def run_scanner(
                 if g_key not in universe_data["galaxies"]:
                     universe_data["galaxies"][g_key] = {}
 
-                print(f"\n🚀 Scanning Galaxy [{g}] (Systems {start_system}..{end_system})...")
+                print(
+                    f"\n🚀 Scanning Galaxy [{g}] (Systems {start_system}..{end_system})...")
 
                 for s in range(start_system, end_system + 1):
                     s_key = str(s)
                     try:
-                        system_data = scan_solar_system(page, main_coords, g, s)
+                        system_data = scan_solar_system(
+                            page, main_coords, g, s)
                         if system_data:
                             universe_data["galaxies"][g_key][s_key] = system_data
                             total_systems_scanned += 1
@@ -302,27 +313,32 @@ def run_scanner(
                             total_free_found += system_data["free_slots"]
 
                             free_info = f"({system_data['free_slots']} free)" if system_data["free_slots"] > 0 else "(Full)"
-                            print(f"  [{g}:{s:03d}] {system_data['total_slots']} slots {free_info}")
+                            print(
+                                f"  [{g}:{s:03d}] {system_data['total_slots']} slots {free_info}")
                         else:
-                            print(f"  [{g}:{s:03d}] ⚠️ No planet data found.")
+                            print(f"  [{g}:{s:03d}] ! No planet data found.")
 
                     except PlaywrightError as pw_err:
-                        print(f"  [{g}:{s:03d}] ⚠️ Playwright Error: {pw_err}. Retrying once...")
+                        print(
+                            f"  [{g}:{s:03d}] ! Playwright Error: {pw_err}. Retrying once...")
                         time.sleep(1.5)
                         try:
-                            retry_data = scan_solar_system(page, main_coords, g, s)
+                            retry_data = scan_solar_system(
+                                page, main_coords, g, s)
                             if retry_data:
                                 universe_data["galaxies"][g_key][s_key] = retry_data
                                 total_systems_scanned += 1
                         except Exception as retry_err:
-                            print(f"  [{g}:{s:03d}] ❌ Skipped after error: {retry_err}")
+                            print(
+                                f"  [{g}:{s:03d}] X Skipped after error: {retry_err}")
                     except Exception as exc:
-                        print(f"  [{g}:{s:03d}] ❌ Unexpected error: {exc}")
+                        print(f"  [{g}:{s:03d}] X Unexpected error: {exc}")
 
                     # Incremental flush every 10 systems
                     if total_systems_scanned > 0 and total_systems_scanned % 10 == 0:
                         save_universe_map(universe_data, output_file)
-                        print(f"    💾 [Auto-Saved] Flushed progress ({total_systems_scanned} systems mapped) to {output_file}")
+                        print(
+                            f"    💾 [Auto-Saved] Flushed progress ({total_systems_scanned} systems mapped) to {output_file}")
 
                     # Humanized jitter delay between system loads
                     jitter = random.uniform(0.15, 0.45)

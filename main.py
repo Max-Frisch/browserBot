@@ -23,6 +23,11 @@ from config import (
     get_planet_url,
     save_error_snapshot,
     human_delay,
+    human_click,
+    should_take_break,
+    should_do_exploration,
+    should_shuffle_queue,
+    add_timing_jitter,
 )
 from telemetry import TelemetryManager
 from shipyard import ShipyardManager
@@ -79,7 +84,8 @@ def login_if_needed(page, context):
 def run():
     print("==================================================")
     print("    GigraWars Headless Automation Daemon Active   ")
-    print(f"    Mode: Headless={HEADLESS} | Viewport={VIEWPORT['width']}x{VIEWPORT['height']}")
+    print(
+        f"    Mode: Headless={HEADLESS} | Viewport={VIEWPORT['width']}x{VIEWPORT['height']}")
     print("==================================================")
 
     with sync_playwright() as p:
@@ -133,7 +139,7 @@ def run():
         try:
             login_if_needed(page, context)
         except PlaywrightError as auth_err:
-            print(f"[⚠️ Login Exception]: {auth_err}")
+            print(f"[!] Login Exception: {auth_err}")
             save_error_snapshot(page, prefix="login_failure")
 
         print("[+] Modular Bot Loop Active.\n")
@@ -142,26 +148,58 @@ def run():
             while True:
                 # Check if paused via Discord
                 if discord_manager.BOT_PAUSED:
-                    print("[⏸️ BOT PAUSED] Automation temporarily suspended via Discord. Sleeping 15s...")
+                    print(
+                        "[⏸️ BOT PAUSED] Automation temporarily suspended via Discord. Sleeping 15s...")
                     time.sleep(15)
                     continue
 
                 cycle_count += 1
-                print(f"\n=== [Cycle: {time.strftime('%H:%M:%S')} | #{cycle_count}] ===")
+                print(
+                    f"\n=== [Cycle: {time.strftime('%H:%M:%S')} | #{cycle_count}] ===")
+
+                # Check for human-like breaks
+                take_break, break_duration = should_take_break(cycle_count)
+                if take_break:
+                    print(
+                        f"[Human-like break] Taking a {break_duration}s break ({break_duration//60} min) to simulate human behavior patterns...")
+                    time.sleep(break_duration)
+                    continue
+
+                # Random page exploration (curious player behavior)
+                if should_do_exploration():
+                    print(
+                        f"[Random exploration] Simulating curious player behavior...")
+                    try:
+                        exploration_pages = [
+                            "highscore", "statistics", "messages"]
+                        random_page = random.choice(exploration_pages)
+                        queue_data = planner.load_queue_data()
+                        main_coords = queue_data.get("main_planet", "2:30:3")
+                        safe_goto(
+                            page, f"{BASE_URL}/app/{main_coords}/{random_page}")
+                        exploration_time = random.uniform(2, 5)
+                        print(
+                            f"    -> Exploring {random_page} for {exploration_time:.1f}s...")
+                        time.sleep(exploration_time)
+                    except Exception as e:
+                        print(f"    -> Exploration failed: {e}")
 
                 try:
                     # Retrieve primary planet context from build_queue.json
                     queue_data = planner.load_queue_data()
-                    main_coords = queue_data.get("main_planet", "3:7:1")
+                    main_coords = queue_data.get("main_planet", "2:30:3")
 
                     # 1. Sentry Watchdog: Check Global Fleet Movements & Dispatch Discord Alerts
-                    incoming = defense.check_incoming_fleets(coords=main_coords)
+                    incoming = defense.check_incoming_fleets(
+                        coords=main_coords)
 
-                    hostile_incoming = [ev for ev in incoming if ev.get("is_hostile")]
+                    hostile_incoming = [
+                        ev for ev in incoming if ev.get("is_hostile")]
                     imminent_attack = any(
                         ev.get("remaining_seconds", 9999) <= 300 for ev in hostile_incoming
                     )
-                    min_hostile_eta = min((ev.get("remaining_seconds", 9999) for ev in hostile_incoming), default=0)
+                    min_hostile_eta = min(
+                        (ev.get("remaining_seconds", 9999) for ev in hostile_incoming), default=0)
 
                     for ev in hostile_incoming:
                         discord_mgr.send_fleet_alert(
@@ -210,13 +248,14 @@ def run():
                     if is_r and r_time > 0:
                         all_active_timers[f"{main_coords}:research"] = r_time
 
-                    active_seconds = [t for t in all_active_timers.values() if t > 0]
+                    active_seconds = [
+                        t for t in all_active_timers.values() if t > 0]
                     heartbeat_cap = random.randint(180, 300)
 
                     if imminent_attack:
                         sleep_time = 30
                         print(
-                            "[🚨 ALERT] Imminent attack detected! High-frequency monitoring active (30s sleep).")
+                            "[ALERT] Imminent attack detected! High-frequency monitoring active (30s sleep).")
                     elif active_seconds:
                         # Find the fastest upcoming build completion across the whole empire
                         shortest_sec = min(active_seconds)
@@ -226,7 +265,8 @@ def run():
 
                         # Find which planet/queue is triggering this wake-up
                         trigger_target = next(
-                            (k for k, v in all_active_timers.items() if v == shortest_sec),
+                            (k for k, v in all_active_timers.items()
+                             if v == shortest_sec),
                             "colony"
                         )
 
@@ -264,14 +304,14 @@ def run():
                         )
 
                 except PlaywrightError as err:
-                    print(f"[⚠️ Network/Navigation Warning]: {err}")
+                    print(f"[!] Network/Navigation Warning: {err}")
                     # Capture screenshot and HTML DOM dump for headless diagnostics
                     save_error_snapshot(page, prefix="cycle_error")
                     print(
                         "[*] Browser session settling for 10 seconds before next cycle...")
                     sleep_time = 10
                 except Exception as err:
-                    print(f"[⚠️ Unexpected Exception in Cycle]: {err}")
+                    print(f"[!] Unexpected Exception in Cycle: {err}")
                     save_error_snapshot(page, prefix="unexpected_cycle_error")
                     sleep_time = 15
 

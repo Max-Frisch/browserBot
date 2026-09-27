@@ -1,0 +1,43 @@
+{
+  "_comment": "Human Behavior Configuration for Browser Bot",
+  "_description": "Configure human-like behavior patterns to avoid detection",
+  "timezone": "Asia/Jakarta",
+  "sleep_hours": {
+    "enabled": false,
+    "start_hour": 23,
+    "end_hour": 7,
+    "sleep_probability": 0.9,
+    "min_sleep_duration": 21600,
+    "max_sleep_duration": 28800,
+    "description": "WIB (Indonesian Western Time) - UTC+7. Sleep 11 PM to 7 AM"
+  },
+  "breaks": {
+    "short_break": {
+      "enabled": true,
+      "interval_cycles": [30, 50],
+      "duration_seconds": [180, 300],
+      "description": "Short breaks every 30-50 cycles for 5-15 minutes"
+    },
+    "long_break": {
+      "enabled": true,
+      "interval_cycles": [100, 150],
+      "duration_seconds": [240, 360],
+      "description": "Long breaks every 100-150 cycles for 30-60 minutes"
+    }
+  },
+  "behavior": {
+    "mistake_probability": 0.02,
+    "exploration_probability": 0.05,
+    "shuffle_queue_probability": 0.3,
+    "timing_jitter_seconds": [-30, 60],
+    "description": "Random behavior patterns to simulate human imperfection"
+  },
+  "browser_fingerprinting": {
+    "random_viewport": true,
+    "random_locale": false,
+    "random_timezone": false,
+    "canvas_protection": true,
+    "webrtc_protection": true,
+    "description": "Browser fingerprint randomization for anti-detection"
+  }
+}

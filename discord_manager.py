@@ -38,14 +38,16 @@ class DiscordManager:
 
         intents = discord.Intents.default()
         intents.message_content = True
-        self.bot = commands.Bot(command_prefix="!", intents=intents, help_command=None)
+        self.bot = commands.Bot(
+            command_prefix="!", intents=intents, help_command=None)
 
         self._setup_events_and_commands()
 
     def _setup_events_and_commands(self):
         @self.bot.event
         async def on_ready():
-            print(f"[Discord] Logged in as {self.bot.user.name} ({self.bot.user.id})")
+            print(
+                f"[Discord] Logged in as {self.bot.user.name} ({self.bot.user.id})")
             self.ready_event.set()
             await self.send_bot_log(
                 title="🟢 GWBot Online",
@@ -65,14 +67,22 @@ class DiscordManager:
                 description="Available management commands for your GigraWars empire:",
                 color=0x3498DB,
             )
-            embed.add_field(name="!status", value="Displays live resources and queues from `/app/empire`", inline=False)
-            embed.add_field(name="!queue", value="Shows the active `build_queue.json`", inline=False)
-            embed.add_field(name="!add <coords> <building> <level>", value="Queue a building (e.g. `!add 2:109:1 Iron Mine 18`)", inline=False)
-            embed.add_field(name="!clone <src_coords> <tgt1> <tgt2>...", value="Clone building blueprint (e.g. `!clone 2:109:1 2:43:1 2:43:2 4:48:1`)", inline=False)
-            embed.add_field(name="!addship <coords> <ship> <amount>", value="Queue ships (e.g. `!addship 3:7:1 Jackal 10`)", inline=False)
-            embed.add_field(name="!remove <coords> <name>", value="Removes a queued goal", inline=False)
-            embed.add_field(name="!snapshot", value="Captures and uploads live browser screenshot", inline=False)
-            embed.add_field(name="!pause / !resume", value="Temporarily pauses or resumes bot automation", inline=False)
+            embed.add_field(
+                name="!status", value="Displays live resources and queues from `/app/empire`", inline=False)
+            embed.add_field(
+                name="!queue", value="Shows the active `build_queue.json`", inline=False)
+            embed.add_field(name="!add <coords> <building> <level>",
+                            value="Queue a building (e.g. `!add 2:109:1 Iron Mine 18`)", inline=False)
+            embed.add_field(name="!clone <src_coords> <tgt1> <tgt2>...",
+                            value="Clone building blueprint (e.g. `!clone 2:109:1 2:43:1 2:43:2 4:48:1`)", inline=False)
+            embed.add_field(name="!addship <coords> <ship> <amount>",
+                            value="Queue ships (e.g. `!addship 2:30:3 Jackal 10`)", inline=False)
+            embed.add_field(name="!remove <coords> <name>",
+                            value="Removes a queued goal", inline=False)
+            embed.add_field(
+                name="!snapshot", value="Captures and uploads live browser screenshot", inline=False)
+            embed.add_field(name="!pause / !resume",
+                            value="Temporarily pauses or resumes bot automation", inline=False)
             await ctx.send(embed=embed)
 
         @self.bot.command(name="status")
@@ -110,12 +120,16 @@ class DiscordManager:
 
                     queue_parts = []
                     if p in b_queues:
-                        queue_parts.append(f"🏗️ {b_queues[p]['name']} ({b_queues[p]['remaining_seconds']}s)")
+                        queue_parts.append(
+                            f"🏗️ {b_queues[p]['name']} ({b_queues[p]['remaining_seconds']}s)")
                     if p in s_queues:
-                        queue_parts.append(f"🚀 {s_queues[p].get('detail', 'Shipyard')} ({s_queues[p]['remaining_seconds']}s)")
+                        queue_parts.append(
+                            f"🚀 {s_queues[p].get('detail', 'Shipyard')} ({s_queues[p]['remaining_seconds']}s)")
 
-                    queue_line = " | ".join(queue_parts) if queue_parts else "Idle"
-                    embed.add_field(name=f"🪐 Planet [{p}]", value=f"{res_line}\n*Queue:* {queue_line}", inline=False)
+                    queue_line = " | ".join(
+                        queue_parts) if queue_parts else "Idle"
+                    embed.add_field(
+                        name=f"🪐 Planet [{p}]", value=f"{res_line}\n*Queue:* {queue_line}", inline=False)
 
                 await ctx.send(embed=embed)
             except Exception as exc:
@@ -131,28 +145,35 @@ class DiscordManager:
 
                 embed = discord.Embed(
                     title="📋 Current Build Queue",
-                    description=f"Capital: **{q_data.get('main_planet', '3:7:1')}**",
+                    description=f"Capital: **{q_data.get('main_planet', '2:30:3')}**",
                     color=0x3498DB,
                 )
 
                 r_goals = q_data.get("research_goals", [])
                 if r_goals:
-                    r_text = "\n".join([f"• {g.get('name')} (Target: Lvl {g.get('level')})" for g in r_goals])
-                    embed.add_field(name="🔬 Capital Research", value=r_text, inline=False)
+                    r_text = "\n".join(
+                        [f"• {g.get('name')} (Target: Lvl {g.get('level')})" for g in r_goals])
+                    embed.add_field(name="🔬 Capital Research",
+                                    value=r_text, inline=False)
 
                 for p, goals in q_data.get("planets", {}).items():
                     if goals:
                         p_lines = []
                         for g in goals:
                             if g.get("type") == "building":
-                                p_lines.append(f"• 🏗️ {g.get('name')} -> Lvl {g.get('level')}")
+                                p_lines.append(
+                                    f"• 🏗️ {g.get('name')} -> Lvl {g.get('level')}")
                             elif g.get("type") == "ship":
-                                p_lines.append(f"• 🚀 {g.get('name')} x{g.get('amount')}")
+                                p_lines.append(
+                                    f"• 🚀 {g.get('name')} x{g.get('amount')}")
                             elif g.get("type") == "defense":
-                                p_lines.append(f"• 🛡️ {g.get('name')} x{g.get('amount')}")
-                        embed.add_field(name=f"🪐 [{p}]", value="\n".join(p_lines), inline=False)
+                                p_lines.append(
+                                    f"• 🛡️ {g.get('name')} x{g.get('amount')}")
+                        embed.add_field(name=f"🪐 [{p}]", value="\n".join(
+                            p_lines), inline=False)
 
-                file = discord.File(BUILD_QUEUE_FILE, filename="build_queue.json")
+                file = discord.File(
+                    BUILD_QUEUE_FILE, filename="build_queue.json")
                 await ctx.send(embed=embed, file=file)
             except Exception as exc:
                 await ctx.send(f"❌ Error reading queue: `{exc}`")
@@ -255,7 +276,8 @@ class DiscordManager:
                         if tgt_lvl < src_lvl:
                             b_title = display_names.get(b_key, b_key.title())
                             already_queued = any(
-                                g.get("type") == "building" and g.get("name", "").lower() == b_title.lower() and g.get("level", 0) >= src_lvl
+                                g.get("type") == "building" and g.get("name", "").lower(
+                                ) == b_title.lower() and g.get("level", 0) >= src_lvl
                                 for g in existing_goals
                             )
                             if not already_queued:
@@ -270,10 +292,12 @@ class DiscordManager:
                 with open(BUILD_QUEUE_FILE, "w", encoding="utf-8") as f:
                     json.dump(q_data, f, indent=2)
 
-                summary_lines = [f"• **[{tgt}]**: {cnt} building goal(s) queued" for tgt, cnt in report.items()]
+                summary_lines = [
+                    f"• **[{tgt}]**: {cnt} building goal(s) queued" for tgt, cnt in report.items()]
                 embed = discord.Embed(
                     title="🏗️ Blueprint Cloned Successfully",
-                    description=f"Source Blueprint: **[{src_coords}]**\n\n" + "\n".join(summary_lines),
+                    description=f"Source Blueprint: **[{src_coords}]**\n\n" + "\n".join(
+                        summary_lines),
                     color=0x2ECC71,
                 )
                 await ctx.send(embed=embed)
@@ -282,11 +306,11 @@ class DiscordManager:
 
         @self.bot.command(name="addship")
         async def add_ship_cmd(ctx, coords: str, *args):
-            """Usage: !addship 3:7:1 Jackal 10"""
+            """Usage: !addship 2:30:3 Jackal 10"""
             if not is_admin(ctx):
                 return
             if len(args) < 2:
-                await ctx.send("Usage: `!addship <coords> <Ship Name> <Amount>`\nExample: `!addship 3:7:1 Jackal 10`")
+                await ctx.send("Usage: `!addship <coords> <Ship Name> <Amount>`\nExample: `!addship 2:30:3 Jackal 10`")
                 return
 
             try:
@@ -326,7 +350,8 @@ class DiscordManager:
 
                 goals = q_data.get("planets", {}).get(coords, [])
                 initial_count = len(goals)
-                q_data["planets"][coords] = [g for g in goals if g.get("name", "").lower() != name.strip().lower()]
+                q_data["planets"][coords] = [g for g in goals if g.get(
+                    "name", "").lower() != name.strip().lower()]
 
                 if len(q_data["planets"][coords]) < initial_count:
                     with open(BUILD_QUEUE_FILE, "w", encoding="utf-8") as f:
@@ -383,7 +408,8 @@ class DiscordManager:
             asyncio.set_event_loop(self.loop)
             self.loop.run_until_complete(self.bot.start(DISCORD_BOT_TOKEN))
 
-        self.thread = threading.Thread(target=run, daemon=True, name="DiscordBotThread")
+        self.thread = threading.Thread(
+            target=run, daemon=True, name="DiscordBotThread")
         self.thread.start()
         print("[Discord] Background bot thread launched.")
 
@@ -399,7 +425,8 @@ class DiscordManager:
             if not channel:
                 return
 
-            mention = f"<@{DISCORD_ADMIN_USER_ID}> " if (urgent and DISCORD_ADMIN_USER_ID) else ""
+            mention = f"<@{DISCORD_ADMIN_USER_ID}> " if (
+                urgent and DISCORD_ADMIN_USER_ID) else ""
             embed = discord.Embed(
                 title=f"🚨 {title}",
                 description=description,
@@ -454,7 +481,8 @@ class DiscordManager:
                 color=0x1ABC9C,
                 timestamp=discord.utils.utcnow()
             )
-            file = discord.File(file_path) if file_path and os.path.exists(file_path) else None
+            file = discord.File(file_path) if file_path and os.path.exists(
+                file_path) else None
             await channel.send(embed=embed, file=file)
 
         asyncio.run_coroutine_threadsafe(_coro(), self.loop)
@@ -476,12 +504,14 @@ class DiscordManager:
                 with open(file_path, "r", encoding="utf-8") as f:
                     q_data = json.load(f)
 
-                main_p = q_data.get("main_planet", "3:7:1")
+                main_p = q_data.get("main_planet", "2:30:3")
                 research_goals = q_data.get("research_goals", [])
                 planets = q_data.get("planets", {})
 
-                total_goals = len(research_goals) + sum(len(goals) for goals in planets.values())
-                active_planets_with_goals = sum(1 for goals in planets.values() if len(goals) > 0)
+                total_goals = len(research_goals) + sum(len(goals)
+                                                        for goals in planets.values())
+                active_planets_with_goals = sum(
+                    1 for goals in planets.values() if len(goals) > 0)
 
                 embed = discord.Embed(
                     title=title,
@@ -491,30 +521,36 @@ class DiscordManager:
                 )
 
                 if research_goals:
-                    r_text = "\n".join([f"• 🔬 {g.get('name')} (Lvl {g.get('level')})" for g in research_goals])
-                    embed.add_field(name="🔬 Capital Research", value=r_text, inline=False)
+                    r_text = "\n".join(
+                        [f"• 🔬 {g.get('name')} (Lvl {g.get('level')})" for g in research_goals])
+                    embed.add_field(name="🔬 Capital Research",
+                                    value=r_text, inline=False)
 
                 for p, goals in planets.items():
                     if goals:
                         p_lines = []
                         for g in goals[:8]:  # Preview first 8 goals
                             if g.get("type") == "building":
-                                p_lines.append(f"• 🏗️ {g.get('name')} -> Lvl {g.get('level')}")
+                                p_lines.append(
+                                    f"• 🏗️ {g.get('name')} -> Lvl {g.get('level')}")
                             elif g.get("type") == "ship":
-                                p_lines.append(f"• 🚀 {g.get('name')} x{g.get('amount')}")
+                                p_lines.append(
+                                    f"• 🚀 {g.get('name')} x{g.get('amount')}")
                             elif g.get("type") == "defense":
-                                p_lines.append(f"• 🛡️ {g.get('name')} x{g.get('amount')}")
+                                p_lines.append(
+                                    f"• 🛡️ {g.get('name')} x{g.get('amount')}")
                         if len(goals) > 8:
-                            p_lines.append(f"*... and {len(goals) - 8} more goals (see attached JSON)*")
-                        embed.add_field(name=f"🪐 [{p}] ({len(goals)} goals)", value="\n".join(p_lines), inline=False)
+                            p_lines.append(
+                                f"*... and {len(goals) - 8} more goals (see attached JSON)*")
+                        embed.add_field(name=f"🪐 [{p}] ({len(goals)} goals)", value="\n".join(
+                            p_lines), inline=False)
 
                 file = discord.File(file_path, filename="build_queue.json")
                 await channel.send(embed=embed, file=file)
             except Exception as e:
-                print(f"[⚠️ Discord Build Queue Upload Error]: {e}")
+                print(f"[!] Discord Build Queue Upload Error: {e}")
 
         asyncio.run_coroutine_threadsafe(_coro(), self.loop)
-
 
 
 if __name__ == "__main__":

@@ -62,12 +62,15 @@ class TelemetryManager:
 
         current_section = "overview"
 
-        rows = re.findall(r"<tr[^>]*>(.*?)</tr>", html, flags=re.DOTALL | re.IGNORECASE)
+        rows = re.findall(r"<tr[^>]*>(.*?)</tr>", html,
+                          flags=re.DOTALL | re.IGNORECASE)
 
         for row in rows:
-            th_match = re.search(r"<th[^>]*>(.*?)</th>", row, flags=re.DOTALL | re.IGNORECASE)
+            th_match = re.search(
+                r"<th[^>]*>(.*?)</th>", row, flags=re.DOTALL | re.IGNORECASE)
             if th_match:
-                th_text = re.sub(r"<[^>]+>", "", th_match.group(1)).strip().lower()
+                th_text = re.sub(
+                    r"<[^>]+>", "", th_match.group(1)).strip().lower()
                 if "empire overview" in th_text:
                     current_section = "overview"
                 elif "resource production" in th_text:
@@ -84,7 +87,8 @@ class TelemetryManager:
                     current_section = "defense"
                 continue
 
-            cells = re.findall(r"<td[^>]*>(.*?)</td>", row, flags=re.DOTALL | re.IGNORECASE)
+            cells = re.findall(r"<td[^>]*>(.*?)</td>",
+                               row, flags=re.DOTALL | re.IGNORECASE)
             if not cells:
                 continue
 
@@ -110,17 +114,23 @@ class TelemetryManager:
                         dur = self._parse_duration(cell)
                         if dur > 0:
                             clean_text = re.sub(r"<[^>]+>", "", cell).strip()
-                            name_match = re.search(r"([^\(]+?)(?:\s*\(\d{2}:\d{2}:\d{2}\))", clean_text)
-                            b_name = name_match.group(1).strip() if name_match else clean_text
-                            building_queues[p] = {"name": b_name, "remaining_seconds": dur}
+                            name_match = re.search(
+                                r"([^\(]+?)(?:\s*\(\d{2}:\d{2}:\d{2}\))", clean_text)
+                            b_name = name_match.group(
+                                1).strip() if name_match else clean_text
+                            building_queues[p] = {
+                                "name": b_name, "remaining_seconds": dur}
                 elif label_lower == "ship factory":
                     for idx, cell in enumerate(cells[1:len(planets) + 1]):
                         p = planets[idx]
                         dur = self._parse_duration(cell)
                         if dur > 0:
-                            title_match = re.search(r'title=["\'](.*?)["\']', cell, re.IGNORECASE)
-                            detail = title_match.group(1).replace("<br/>", " ") if title_match else ""
-                            ship_queues[p] = {"remaining_seconds": dur, "detail": detail}
+                            title_match = re.search(
+                                r'title=["\'](.*?)["\']', cell, re.IGNORECASE)
+                            detail = title_match.group(1).replace(
+                                "<br/>", " ") if title_match else ""
+                            ship_queues[p] = {
+                                "remaining_seconds": dur, "detail": detail}
 
             # Section: Resources
             elif current_section == "resources":
@@ -150,20 +160,23 @@ class TelemetryManager:
                         p = planets[idx]
                         if p not in building_levels:
                             building_levels[p] = {}
-                        lvl = self._clean_num(re.sub(r"\(.*?\)", "", re.sub(r"<[^>]+>", "", cell)))
+                        lvl = self._clean_num(
+                            re.sub(r"\(.*?\)", "", re.sub(r"<[^>]+>", "", cell)))
                         building_levels[p][label_lower] = lvl
 
                         if is_storage:
                             if p not in storage_limits:
                                 storage_limits[p] = {}
-                            title_match = re.search(r'title=["\']([\d\.]+)\s+secure["\']', cell, re.IGNORECASE)
+                            title_match = re.search(
+                                r'title=["\']([\d\.]+)\s+secure["\']', cell, re.IGNORECASE)
                             if title_match:
                                 res_type = "iron" if "iron" in label_lower else (
                                     "lutinum" if "lutinum" in label_lower else (
                                         "water" if "water" in label_lower else "hydrogen"
                                     )
                                 )
-                                storage_limits[p][res_type] = self._clean_num(title_match.group(1))
+                                storage_limits[p][res_type] = self._clean_num(
+                                    title_match.group(1))
 
             # Section: Ships
             elif current_section == "ships":
@@ -172,7 +185,8 @@ class TelemetryManager:
                         p = planets[idx]
                         if p not in ships:
                             ships[p] = {}
-                        ships[p][label_lower] = self._clean_num(re.sub(r"<[^>]+>", "", cell))
+                        ships[p][label_lower] = self._clean_num(
+                            re.sub(r"<[^>]+>", "", cell))
 
             # Section: Defense
             elif current_section == "defense":
@@ -181,7 +195,8 @@ class TelemetryManager:
                         p = planets[idx]
                         if p not in defense:
                             defense[p] = {}
-                        defense[p][label_lower] = self._clean_num(re.sub(r"<[^>]+>", "", cell))
+                        defense[p][label_lower] = self._clean_num(
+                            re.sub(r"<[^>]+>", "", cell))
 
         return {
             "planets": planets,
@@ -247,16 +262,17 @@ class TelemetryManager:
                 }
         return resources
 
-    def get_storage_limits(self, coords: str = "3:7:1") -> dict:
+    def get_storage_limits(self, coords: str = "2:30:3") -> dict:
         """Returns safe (unplunderable) storage limits for a specific planet."""
         overview = self.get_empire_overview()
         planet_limits = overview.get("storage_limits", {}).get(coords, {})
 
         # Default safe limits if not set
-        defaults = {"iron": 84000, "lutinum": 84000, "water": 30000, "hydrogen": 30000}
+        defaults = {"iron": 84000, "lutinum": 84000,
+                    "water": 30000, "hydrogen": 30000}
         return {k: planet_limits.get(k, defaults[k]) for k in defaults}
 
-    def calculate_exposed_resources(self, coords: str = "3:7:1") -> dict:
+    def calculate_exposed_resources(self, coords: str = "2:30:3") -> dict:
         """Calculates plunderable excess resources for a specific planet."""
         current = self.get_resources(coords=coords)
         safe_limits = self.get_storage_limits(coords=coords)
@@ -267,7 +283,7 @@ class TelemetryManager:
             exposed[res] = round(max(0.0, curr_val - safe_val), 2)
         return exposed
 
-    def get_queue_status(self, category: str = "construction", coords: str = "3:7:1") -> tuple[bool, int]:
+    def get_queue_status(self, category: str = "construction", coords: str = "2:30:3") -> tuple[bool, int]:
         """Checks timer for construction, research, or ship queues on a planet."""
         if category == "construction":
             overview = self.get_empire_overview()
@@ -296,7 +312,7 @@ class TelemetryManager:
                 return True, remaining
         return False, 0
 
-    def get_busy_building_planets(self, coords: str = "3:7:1") -> dict[str, int]:
+    def get_busy_building_planets(self, coords: str = "2:30:3") -> dict[str, int]:
         """Retrieves all planets currently constructing a building with exact remaining seconds from /app/empire."""
         overview = self.get_empire_overview()
         busy = {}

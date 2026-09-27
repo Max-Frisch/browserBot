@@ -2,7 +2,8 @@ import time
 from playwright.sync_api import Page
 from config import safe_goto, get_planet_url
 
-HOSTILE_MISSION_KEYWORDS = ["attack", "angriff", "plunder", "raid", "spionage", "spy"]
+HOSTILE_MISSION_KEYWORDS = ["attack", "angriff",
+                            "plunder", "raid", "spionage", "spy"]
 
 
 class DefenseManager:
@@ -29,7 +30,8 @@ class DefenseManager:
                     mission_type = mission_loc.inner_text().strip()
                     if self.is_hostile_mission(mission_type):
                         target_unix_str = timer_loc.get_attribute("data-time")
-                        rem_sec = max(0, int(target_unix_str) - int(time.time())) if target_unix_str else 0
+                        rem_sec = max(0, int(target_unix_str) -
+                                      int(time.time())) if target_unix_str else 0
                         hostile_events.append({
                             "mission": mission_type,
                             "remaining_seconds": rem_sec,
@@ -39,7 +41,7 @@ class DefenseManager:
             pass
         return hostile_events
 
-    def check_incoming_fleets(self, coords: str = "3:7:1") -> list[dict]:
+    def check_incoming_fleets(self, coords: str = "2:30:3") -> list[dict]:
         """Parses the Overview dashboard for incoming fleet movements."""
         target_url = get_planet_url(coords, "planet")
 
@@ -69,12 +71,14 @@ class DefenseManager:
 
         hostiles = [e for e in incoming_events if e.get("is_hostile")]
         if hostiles:
-            print(f"[🚨 HOSTILE FLEET ALERT] {len(hostiles)} incoming hostile movement(s):")
+            print(
+                f"[HOSTILE FLEET ALERT] {len(hostiles)} incoming hostile movement(s):")
             for ev in hostiles:
                 print(
                     f" └─ {ev['mission']} arriving in {ev['remaining_seconds']}s ({round(ev['remaining_seconds']/60, 1)}m)")
         elif incoming_events:
-            print(f"[*] {len(incoming_events)} friendly/routine fleet movement(s) detected.")
+            print(
+                f"[*] {len(incoming_events)} friendly/routine fleet movement(s) detected.")
         else:
             print("[Fleet Check] No hostile fleet movements detected.")
 
