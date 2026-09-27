@@ -1,6 +1,0 @@
-{
-  "name": "GigraWars Bot Orchestrator & VPS Manager",
-  "description": "Headless automation daemon and multi-planet queue orchestrator for GigraWars with browser fingerprint spoofing and diagnostics.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
