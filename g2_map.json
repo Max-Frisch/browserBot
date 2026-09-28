@@ -1,0 +1,6810 @@
+{
+  "last_updated": 1790386767,
+  "galaxies": {
+    "2": {
+      "1": {
+        "total_slots": 8,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Roric Sharma",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Taron Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Stryker Scorn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Sardak Skarr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Torvin Kree",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Pyralia Kade",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Markus Aris",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Bastian Lin",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "2": {
+        "total_slots": 7,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Liana Croft",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Bastian Orrin",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Krixus Rage",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Jovan Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Bastian Fallon",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Vossibaer",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "3": {
+        "total_slots": 12,
+        "free_slots": 11,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Devin Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "4": {
+        "total_slots": 7,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Taron Voss",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Foreman Erdok",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Corvin Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "5": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Archon Nero",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Prospector Urgon",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Krixus Thorne",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Krixus Vorr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          }
+        ]
+      },
+      "6": {
+        "total_slots": 11,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Markus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "occupied",
+            "owner": "Repsychler",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "7": {
+        "total_slots": 7,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Drax Scorn",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Zephyx Kree",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Caelan Tavus",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "8": {
+        "total_slots": 8,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Xylar Dominus",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Olenna Pike",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Stryker Krenn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Samara Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Boroque",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Sardak Kade",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "9": {
+        "total_slots": 10,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Captain Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          }
+        ]
+      },
+      "10": {
+        "total_slots": 4,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "absolut85",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Mira Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Markus Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "11": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Lyra Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Krixus Skarr",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Caelan Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "12": {
+        "total_slots": 10,
+        "free_slots": 7,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Vulkok",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Bastian Sorgan",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Sledgefist",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "13": {
+        "total_slots": 12,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Pyralia Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Prospector Urgon",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Molesplitter",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "14": {
+        "total_slots": 10,
+        "free_slots": 8,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "bmb",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Taron Thorne",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "15": {
+        "total_slots": 6,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Stryker Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Markus Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Tabris",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Archon Sylas",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Liana Soto",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "16": {
+        "total_slots": 10,
+        "free_slots": 8,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Iona Marek",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Roric Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "17": {
+        "total_slots": 7,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Gritak",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Zombi",
+            "type": "player",
+            "alliance": "[KK]"
+          }
+        ]
+      },
+      "18": {
+        "total_slots": 4,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Kenji Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Olenna Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "19": {
+        "total_slots": 5,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Borin",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Memoryx",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Benjen Jaro",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "20": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Admiral Sardak",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "absolut85",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "absolut85",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Bowser",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "21": {
+        "total_slots": 6,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Silas Valerius",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Sela Thorne",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Titus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Taron Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "22": {
+        "total_slots": 5,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Thrax Thorne",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Nostradamus",
+            "type": "player",
+            "alliance": "[-HD-]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Taron Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Roric Sharma",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Zara Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "23": {
+        "total_slots": 7,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Jovan Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "DerG\u00e4rtner",
+            "type": "player",
+            "alliance": "[-D-F-O-]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Markus Aris",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Bastian Orrin",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "24": {
+        "total_slots": 4,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "25": {
+        "total_slots": 12,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Devin Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Vulkok",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Zade Vorr",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "26": {
+        "total_slots": 12,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Chief Argus",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Bastian Fallon",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Liana Croft",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "27": {
+        "total_slots": 7,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Fissuretek",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "28": {
+        "total_slots": 7,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Markus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Marshal Vex",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Foreman Erdok",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Gritak",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          }
+        ]
+      },
+      "29": {
+        "total_slots": 5,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "30": {
+        "total_slots": 9,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "ultrapfanners",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Gabelstapler",
+            "type": "player",
+            "alliance": "[INVIC]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Klabautermann",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Absti",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Executor Kane",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "31": {
+        "total_slots": 12,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Pintu",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Caelan Tavus",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "occupied",
+            "owner": "Markus Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "32": {
+        "total_slots": 11,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Torvin Kree",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "occupied",
+            "owner": "Foreman Grondar",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          }
+        ]
+      },
+      "33": {
+        "total_slots": 11,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Mister-T",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "KaZu",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "34": {
+        "total_slots": 12,
+        "free_slots": 10,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Tschibuia",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Bastian Lin",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "35": {
+        "total_slots": 12,
+        "free_slots": 11,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Locutus123",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "36": {
+        "total_slots": 8,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Krixus Thorne",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Ironor",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Grimum",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Caelan Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "37": {
+        "total_slots": 3,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Stryker Scorn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          }
+        ]
+      },
+      "38": {
+        "total_slots": 5,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Taron Thorne",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Mira Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "39": {
+        "total_slots": 6,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Taron Voss",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Markus Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Corvin Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "40": {
+        "total_slots": 11,
+        "free_slots": 8,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Stryker Krenn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Tabris",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Samara Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "41": {
+        "total_slots": 8,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Olenna Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Kenji Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "42": {
+        "total_slots": 7,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Sardak Kade",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Titus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Vulkok",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          }
+        ]
+      },
+      "43": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Redock",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Redock",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Redock",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "44": {
+        "total_slots": 9,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Borforged",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Taron Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Bastian Orrin",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Prospector Urgon",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "mi_kevin_92",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "mi_kevin_92",
+            "type": "player",
+            "alliance": "[KK]"
+          }
+        ]
+      },
+      "45": {
+        "total_slots": 8,
+        "free_slots": 7,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Olenna Pike",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "46": {
+        "total_slots": 6,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Grakback",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Pyralia Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Stryker Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          }
+        ]
+      },
+      "47": {
+        "total_slots": 7,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Cobaltback",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Liana Croft",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Molesplitter",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Taron Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Zara Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Archon Sylas",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "48": {
+        "total_slots": 9,
+        "free_slots": 7,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Bastian Sorgan",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Zephyx Kree",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "49": {
+        "total_slots": 5,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Captain Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Drax Scorn",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Iona Marek",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Sela Thorne",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "50": {
+        "total_slots": 11,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Devin Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Liana Soto",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "robbse",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "robbse",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Harkon",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Sardak Skarr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Magmaguts",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "51": {
+        "total_slots": 6,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "robbse",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "robbse",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "robbse",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "robbse",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Roric Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "robbse",
+            "type": "player",
+            "alliance": "[KK]"
+          }
+        ]
+      },
+      "52": {
+        "total_slots": 8,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Zara Torren",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Markus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Lyra Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Krixus Vorr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Silas Valerius",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Markus Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "53": {
+        "total_slots": 10,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "DerG\u00e4rtner",
+            "type": "player",
+            "alliance": "[-D-F-O-]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "54": {
+        "total_slots": 6,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Pyralia Kade",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          }
+        ]
+      },
+      "55": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Legi0n",
+            "type": "player",
+            "alliance": "[Chaos]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Legi0n",
+            "type": "player",
+            "alliance": "[Chaos]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Legi0n",
+            "type": "player",
+            "alliance": "[Chaos]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Legi0n",
+            "type": "player",
+            "alliance": "[Chaos]"
+          }
+        ]
+      },
+      "56": {
+        "total_slots": 8,
+        "free_slots": 7,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Deepum",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "57": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "axtmassaker",
+            "type": "player",
+            "alliance": "[-DU-]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "olivia",
+            "type": "player",
+            "alliance": "[-DU-]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "axtmassaker",
+            "type": "player",
+            "alliance": "[-DU-]"
+          }
+        ]
+      },
+      "58": {
+        "total_slots": 8,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Admiral Sardak",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Zade Vorr",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Chief Argus",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Roric Sharma",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Bastian Lin",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Bastian Fallon",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "59": {
+        "total_slots": 9,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Above",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "60": {
+        "total_slots": 10,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Jovan Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "HFGL",
+            "type": "player",
+            "alliance": "[Chaos]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Gabelstapler",
+            "type": "player",
+            "alliance": "[INVIC]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Tischeck",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Thurys",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Princess_Donut",
+            "type": "player",
+            "alliance": "[INVIC]"
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Xylar Dominus",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Caelan Tavus",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Krixus Skarr",
+            "type": "npc",
+            "alliance": "[CSL]"
+          }
+        ]
+      },
+      "61": {
+        "total_slots": 4,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Eeez",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Pintu",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Foreman Erdok",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          }
+        ]
+      },
+      "62": {
+        "total_slots": 10,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Mira Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Taron Voss",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Cobalthammer",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Schellar",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "63": {
+        "total_slots": 4,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Krixus Rage",
+            "type": "npc",
+            "alliance": "[CSL]"
+          }
+        ]
+      },
+      "64": {
+        "total_slots": 9,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Ronko_",
+            "type": "player",
+            "alliance": "[-D-F-O-]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Markus Aris",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Executor Kane",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Archon Nero",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          }
+        ]
+      },
+      "65": {
+        "total_slots": 7,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Chief Argus",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Benjen Jaro",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Samara Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Tabris",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Taron Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Markus Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "66": {
+        "total_slots": 10,
+        "free_slots": 10,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "67": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Marydeath",
+            "type": "player",
+            "alliance": "[Chaos]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Marydeath",
+            "type": "player",
+            "alliance": "[Chaos]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Marydeath",
+            "type": "player",
+            "alliance": "[Chaos]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Marydeath",
+            "type": "player",
+            "alliance": "[Chaos]"
+          }
+        ]
+      },
+      "68": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Torvin Kree",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Harkum",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Foreman Grondar",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Liana Croft",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "69": {
+        "total_slots": 11,
+        "free_slots": 9,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Kenji Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Fissuretek",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "70": {
+        "total_slots": 10,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Krixus Thorne",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Iona Marek",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Titus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Bastian Orrin",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "71": {
+        "total_slots": 6,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "72": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Sittingbull2250",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Sittingbull2250",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Sittingbull2250",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Sittingbull2250",
+            "type": "player",
+            "alliance": "[KK]"
+          }
+        ]
+      },
+      "73": {
+        "total_slots": 9,
+        "free_slots": 8,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Olenna Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "74": {
+        "total_slots": 6,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Roric Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Magmaguts",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Markus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Bastian Sorgan",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "75": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "mdwild",
+            "type": "player",
+            "alliance": "[-ThF-]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Caelan Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Cobaltback",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          }
+        ]
+      },
+      "76": {
+        "total_slots": 10,
+        "free_slots": 8,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Silas Valerius",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Kobra018",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "77": {
+        "total_slots": 7,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "The_Exploited",
+            "type": "player",
+            "alliance": "[-ThF-]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "The_Exploited",
+            "type": "player",
+            "alliance": "[-ThF-]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "The_Exploited",
+            "type": "player",
+            "alliance": "[-ThF-]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Corvin Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Marshal Vex",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Giovanni",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Giovanni",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "78": {
+        "total_slots": 8,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Liana Soto",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Stryker Scorn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "79": {
+        "total_slots": 6,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Taron Thorne",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "80": {
+        "total_slots": 12,
+        "free_slots": 10,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Pyralia Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Archon Sylas",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "81": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Sela Thorne",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Vulkok",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Stryker Krenn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Thrax Thorne",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          }
+        ]
+      },
+      "82": {
+        "total_slots": 8,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Stryker Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Bastian Fallon",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Zara Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "83": {
+        "total_slots": 5,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Fissuretek",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Sardak Skarr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "84": {
+        "total_slots": 8,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Taron Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Roric Sharma",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Harkum",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Krixus Vorr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Bastian Lin",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "85": {
+        "total_slots": 6,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Devin Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Pyralia Kade",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Jovan Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "86": {
+        "total_slots": 5,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Olenna Pike",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Harkon",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "87": {
+        "total_slots": 5,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Cobaltback",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          }
+        ]
+      },
+      "88": {
+        "total_slots": 12,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "maboervin",
+            "type": "player",
+            "alliance": "[-DU-]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Ralle",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "occupied",
+            "owner": "Tabris",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 12,
+            "status": "occupied",
+            "owner": "Ironor",
+            "type": "npc",
+            "alliance": "[CORE]"
+          }
+        ]
+      },
+      "89": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Zara Torren",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Benjen Jaro",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Sardak Kade",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Foreman Grondar",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          }
+        ]
+      },
+      "90": {
+        "total_slots": 7,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Mira Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "ultrapfanners",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Absti",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "91": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Taron Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Samara Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Markus Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "AliceW",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "92": {
+        "total_slots": 10,
+        "free_slots": 7,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Magmaguts",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Foreman Grelnuk",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Lyra Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "93": {
+        "total_slots": 9,
+        "free_slots": 8,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Iona Marek",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "94": {
+        "total_slots": 11,
+        "free_slots": 7,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Chris62",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Chris62",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Liana Croft",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Caelan Tavus",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "95": {
+        "total_slots": 5,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Executor Kane",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Taron Voss",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Zade Vorr",
+            "type": "npc",
+            "alliance": "[CSL]"
+          }
+        ]
+      },
+      "96": {
+        "total_slots": 9,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Onehitjoker",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Onehitjoker",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Onehitjoker",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Onehitjoker",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Borak",
+            "type": "npc",
+            "alliance": "[SWARM]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Krixus Skarr",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Titus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "97": {
+        "total_slots": 11,
+        "free_slots": 5,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Drax Scorn",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Kenji Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Admiral Sardak",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Headshooter",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "Headshooter",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "occupied",
+            "owner": "Harkum",
+            "type": "npc",
+            "alliance": "[CORE]"
+          }
+        ]
+      },
+      "98": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Nekromaan",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Nekromaan",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Nekromaan",
+            "type": "player",
+            "alliance": "[KK]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Nekromaan",
+            "type": "player",
+            "alliance": "[KK]"
+          }
+        ]
+      },
+      "99": {
+        "total_slots": 9,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Spucki",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Chief Argus",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Molesplitter",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "100": {
+        "total_slots": 11,
+        "free_slots": 6,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Gabelstapler",
+            "type": "player",
+            "alliance": "[INVIC]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Ronko_",
+            "type": "player",
+            "alliance": "[-D-F-O-]"
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Roric Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Krixus Rage",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "occupied",
+            "owner": "Markus Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "101": {
+        "total_slots": 5,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Silas Valerius",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Fissuretek",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Xylar Dominus",
+            "type": "npc",
+            "alliance": "[CSL]"
+          }
+        ]
+      },
+      "102": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Captain Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Bastian Orrin",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Der_kleine",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "103": {
+        "total_slots": 11,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Borin",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Markus Aris",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Tribune Sylas",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "occupied",
+            "owner": "General03",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "104": {
+        "total_slots": 8,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Zephyx Kree",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Krixus Thorne",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 6,
+            "status": "occupied",
+            "owner": "Admiral Kane",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Archon Nero",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "105": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "DeShola",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "DeShola",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "DeShola",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "106": {
+        "total_slots": 6,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Bastian Fallon",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Bastian Sorgan",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Tabris",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Caelan Joric",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "107": {
+        "total_slots": 5,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Jovan Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "108": {
+        "total_slots": 9,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Quarrydigger",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Bowser91",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Zara Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Markus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Liana Soto",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "109": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Redock",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Redock",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Redock",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "110": {
+        "total_slots": 4,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Devin Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Corvin Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "111": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Olenna Pike",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Roric Sharma",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Sela Thorne",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Benjen Jaro",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "112": {
+        "total_slots": 6,
+        "free_slots": 3,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Taron Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Taron Thorne",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Archon Sylas",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      },
+      "113": {
+        "total_slots": 7,
+        "free_slots": 2,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "DerG\u00e4rtner",
+            "type": "player",
+            "alliance": "[-D-F-O-]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Markus Petrova",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Stryker Scorn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Stryker Krenn",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Olenna Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          }
+        ]
+      },
+      "114": {
+        "total_slots": 5,
+        "free_slots": 1,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Pyralia Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Foreman Grelnuk",
+            "type": "npc",
+            "alliance": "[CORE]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Mira Vex",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Stryker Var",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          }
+        ]
+      },
+      "115": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "DeShola",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Marshal Vex",
+            "type": "npc",
+            "alliance": "[CSL]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Liana Croft",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "116": {
+        "total_slots": 3,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Iona Marek",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Pyralia Kade",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Sardak Skarr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          }
+        ]
+      },
+      "117": {
+        "total_slots": 4,
+        "free_slots": 0,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Torvin Kree",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Taron Voss",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 3,
+            "status": "occupied",
+            "owner": "Lyra Croft",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "Giovanni",
+            "type": "player",
+            "alliance": null
+          }
+        ]
+      },
+      "118": {
+        "total_slots": 9,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Bastian Lin",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 2,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "occupied",
+            "owner": "wuliwux",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "occupied",
+            "owner": "Titus Solano",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Kenji Chen",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Samara Joric",
+            "type": "npc",
+            "alliance": "[AXIS]"
+          }
+        ]
+      },
+      "119": {
+        "total_slots": 9,
+        "free_slots": 4,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "occupied",
+            "owner": "Vossibaer",
+            "type": "player",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Taron Valerius",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "occupied",
+            "owner": "Krixus Vorr",
+            "type": "npc",
+            "alliance": "[RAGE]"
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "occupied",
+            "owner": "Caelan Tavus",
+            "type": "npc",
+            "alliance": "[CHORUS]"
+          },
+          {
+            "slot": 9,
+            "status": "occupied",
+            "owner": "Thrax Thorne",
+            "type": "npc",
+            "alliance": "[HIVE]"
+          }
+        ]
+      },
+      "120": {
+        "total_slots": 11,
+        "free_slots": 10,
+        "planets": [
+          {
+            "slot": 1,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 2,
+            "status": "occupied",
+            "owner": "Nostradamus",
+            "type": "player",
+            "alliance": "[-HD-]"
+          },
+          {
+            "slot": 3,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 4,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 5,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 6,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 7,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 8,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 9,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 10,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          },
+          {
+            "slot": 11,
+            "status": "empty",
+            "owner": null,
+            "type": "empty",
+            "alliance": null
+          }
+        ]
+      }
+    }
+  }
+}

@@ -8,3 +8,4 @@ __pycache__/
 *.pyd
 build_queue.json
 ship_queue_origins.json
+/errors
