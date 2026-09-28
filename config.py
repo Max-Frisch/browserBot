@@ -91,6 +91,13 @@ DISCORD_CHANNEL_COMMANDS = int(os.getenv("DISCORD_CHANNEL_COMMANDS", "0")) if os
 DISCORD_CHANNEL_UNIVERSE_MAPPING = int(os.getenv("DISCORD_CHANNEL_UNIVERSE_MAPPING", "0")) if os.getenv("DISCORD_CHANNEL_UNIVERSE_MAPPING") else 0
 DISCORD_CHANNEL_BUILD_QUEUE = int(os.getenv("DISCORD_CHANNEL_BUILD_QUEUE", "1552503746863562803")) if os.getenv("DISCORD_CHANNEL_BUILD_QUEUE", "1552503746863562803") else 1552503746863562803
 
+# Fleet Protection Settings
+FLEET_PROTECTION_ENABLED = os.getenv("FLEET_PROTECTION_ENABLED", "true").lower() in ("true", "1", "yes")
+FLEET_PROTECTION_DRY_RUN = os.getenv("FLEET_PROTECTION_DRY_RUN", "true").lower() in ("true", "1", "yes")  # Safety: dry-run mode by default
+FLEET_EVACUATION_MIN_SHIPS = int(os.getenv("FLEET_EVACUATION_MIN_SHIPS", "1"))  # Minimum ships to trigger evacuation
+FLEET_EVACUATION_SAFETY_BUFFER = int(os.getenv("FLEET_EVACUATION_SAFETY_BUFFER", "300"))  # Seconds to arrive after attack
+FLEET_RETURN_BUFFER = int(os.getenv("FLEET_RETURN_BUFFER", "600"))  # Seconds to wait after arrival before return
+
 # Headless & VPS Deployment Settings
 HEADLESS = os.getenv("HEADLESS", "true").lower() in ("true", "1", "yes")
 

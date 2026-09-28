@@ -28,12 +28,18 @@ from config import (
     should_do_exploration,
     should_shuffle_queue,
     add_timing_jitter,
+    FLEET_PROTECTION_ENABLED,
+    FLEET_PROTECTION_DRY_RUN,
+    FLEET_EVACUATION_MIN_SHIPS,
+    FLEET_EVACUATION_SAFETY_BUFFER,
+    FLEET_RETURN_BUFFER,
 )
 from telemetry import TelemetryManager
 from shipyard import ShipyardManager
 from defense import DefenseManager
 from planner import PlannerManager
 from discord_manager import DiscordManager
+from fleet_manager import FleetManager
 import discord_manager
 
 
@@ -121,6 +127,7 @@ def run():
         shipyard = ShipyardManager(page, telemetry)
         defense = DefenseManager(page)
         planner = PlannerManager(page, telemetry)
+        fleet = FleetManager(page, telemetry) if FLEET_PROTECTION_ENABLED else None
 
         latest_snapshot_file = [None]
 
@@ -227,13 +234,70 @@ def run():
                         if wake_timer > 0:
                             bunker_precision_timers[f"{p}:bunker"] = wake_timer
 
+                    # 2.5. Fleet Protection - Evacuate ships from planets under attack
+                    fleet_evacuation_timers = {}
+                    if fleet and FLEET_PROTECTION_ENABLED:
+                        # Safety notification for dry-run mode
+                        if FLEET_PROTECTION_DRY_RUN:
+                            print("[Fleet Protection] Running in DRY-RUN mode - no actual fleet movements")
+                        
+                        # Collect all planets under attack
+                        planets_under_attack = []
+                        for p in all_planets:
+                            p_incoming = defense.check_incoming_fleets(coords=p)
+                            p_hostile = [ev for ev in p_incoming if ev.get("is_hostile")]
+                            if p_hostile:
+                                planets_under_attack.append(p)
+                                print(f"[Fleet Protection] Planet [{p}] under attack - checking evacuation...")
+                        
+                        # Evacuate ships from attacked planets
+                        for attacked_planet in planets_under_attack:
+                            # Get attack ETA for this specific planet
+                            p_incoming = defense.check_incoming_fleets(coords=attacked_planet)
+                            p_hostile = [ev for ev in p_incoming if ev.get("is_hostile")]
+                            min_eta = min((ev.get("remaining_seconds", 9999) for ev in p_hostile), default=0)
+                            
+                            # Check if evacuation already in progress
+                            if attacked_planet not in fleet.get_evacuation_state().get("active_evacuations", {}):
+                                # Evacuate ships
+                                travel_time = fleet.evacuate_fleet(
+                                    source_coords=attacked_planet,
+                                    under_attack_planets=planets_under_attack,
+                                    attack_eta_seconds=min_eta
+                                )
+                                if travel_time:
+                                    fleet_evacuation_timers[f"{attacked_planet}:evacuation"] = travel_time
+                                    mode_indicator = "🧪 DRY-RUN" if FLEET_PROTECTION_DRY_RUN else "🚀 LIVE"
+                                    discord_mgr.send_bot_log(
+                                        title=f"{mode_indicator} Fleet Evacuation: [{attacked_planet}]",
+                                        description=f"Ships evacuated to safe destination due to incoming attack (ETA: {min_eta}s)",
+                                        color=0xE67E22,
+                                        fields={
+                                            "Travel Time": f"{travel_time}s",
+                                            "Destination": "Safe Planet",
+                                            "Mode": "Dry-Run Simulation" if FLEET_PROTECTION_DRY_RUN else "Live Operation"
+                                        }
+                                    )
+                        
+                        # Check for fleet returns when attacks are over
+                        if planets_under_attack:
+                            returned_planets = fleet.check_evacuation_returns(planets_under_attack)
+                            for returned_planet in returned_planets:
+                                mode_indicator = "🧪 DRY-RUN" if FLEET_PROTECTION_DRY_RUN else "🏠 LIVE"
+                                discord_mgr.send_bot_log(
+                                    title=f"{mode_indicator} Fleet Returned: [{returned_planet}]",
+                                    description=f"Evacuated ships have returned to home planet after attack cleared",
+                                    color=0x2ECC71
+                                )
+
                     # 3. Process Build Queue Goals Across Empire (returns remaining seconds per planet)
                     empire_timers = planner.process_goals()
 
                     # 4. Empire-Wide Queue Inspection & Adaptive Sleep
-                    # Merge timers from planner, shipyard queues, and bunker guard
+                    # Merge timers from planner, shipyard queues, bunker guard, and fleet evacuation
                     all_active_timers = dict(empire_timers)
                     all_active_timers.update(bunker_precision_timers)
+                    all_active_timers.update(fleet_evacuation_timers)
 
                     # Inspect live empire overview for any active ship queues
                     overview = telemetry.get_empire_overview()
