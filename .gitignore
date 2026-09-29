@@ -9,3 +9,4 @@ __pycache__/
 build_queue.json
 ship_queue_origins.json
 /errors
+/venv
