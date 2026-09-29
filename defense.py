@@ -62,20 +62,35 @@ class DefenseManager:
                 if target_unix_str:
                     remaining_sec = max(
                         0, int(target_unix_str) - int(time.time()))
+                    
+                    # Check if this is an own fleet (outbound) vs incoming fleet
+                    # Own fleets typically have "own-fleet" class in the mission cell
+                    row_html = row.inner_html()
+                    is_own_fleet = "own-fleet" in row_html.lower()
+                    
+                    # Only classify as hostile if it's NOT our own fleet AND has hostile mission type
+                    is_hostile = not is_own_fleet and self.is_hostile_mission(mission_type)
+                    
                     incoming_events.append({
                         "mission": mission_type,
                         "remaining_seconds": remaining_sec,
-                        "is_hostile": self.is_hostile_mission(mission_type),
+                        "is_hostile": is_hostile,
+                        "is_own_fleet": is_own_fleet,
                         "arrival_time": timer_loc.get_attribute("data-bs-original-title") or ""
                     })
 
         hostiles = [e for e in incoming_events if e.get("is_hostile")]
+        own_fleets = [e for e in incoming_events if e.get("is_own_fleet")]
+        
         if hostiles:
             print(
                 f"[HOSTILE FLEET ALERT] {len(hostiles)} incoming hostile movement(s):")
             for ev in hostiles:
                 print(
                     f" └─ {ev['mission']} arriving in {ev['remaining_seconds']}s ({round(ev['remaining_seconds']/60, 1)}m)")
+        elif own_fleets:
+            print(
+                f"[*] {len(own_fleets)} own fleet movement(s) detected (not hostile).")
         elif incoming_events:
             print(
                 f"[*] {len(incoming_events)} friendly/routine fleet movement(s) detected.")
